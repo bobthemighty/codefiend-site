@@ -10,6 +10,7 @@ I'm a huge fan of Emily Bache's work, and was particularly interested in the [De
 
 I'm going to walk through the process I followed when solving the kata, and I'll include links to each commit so you can see the full code as we go. The repo is [here](https://github.com/bobthemighty/DeliveryController-Refactoring-Kata/)
 
+
 The challenge set by the kata is to refactor a controller class so that we can replace some emails with text messages. The controller code is as follows:
 
 ```python,linenos
@@ -45,6 +46,8 @@ class DeliveryController:
 
 
 ```
+
+# Covering the existing behaviour
 
 Phew! There's a lot going on here. I don't have any real context for understanding this code, except that it sends emails as part of a delivery service, and we want it to send SMS. Generally when I'm faced with a refactoring problem, I scan through the code - without reading in depth - looking for obvious clusters of functionality. There's enough happening here that I'm going to miss some nuances by reading the code, so I want to start testing my assumptions as quickly as possible. In this case, there's a lot of mingling of responsibilities, but we can still pick out some key ideas. 
 
@@ -120,6 +123,8 @@ class EmailGateway:
 ```
 
 Now we see the problem. The controller is creating a new instance of EmailGateway in its constructor, and the EmailGateway requires a running SMTP server. In an extreme situation, we could consider running an SMTP server in a docker container and capturing the emails that way, but for this code, we can easily fake out the dependency.
+
+## Faking out the EmailGateway with a Stub
 
 First step is to create our test double:
 
@@ -222,6 +227,8 @@ collected 2 items
 test_delivery_service.py ..                                                                       [100%]
 ```
 
+## Testing the email behaviour with a Spy
+
 Our goal here is to get coverage of the existing behaviour. We've successfully run a test by passing a Stub implementation for EmailGateway. It's not a test that we can rely on, though, because it isn't testing how the EmailGateway is used. For that we're going to need to extend our test. First we'll modify the `FakeEmailGateway`.
 
 ```python,linenos
@@ -248,6 +255,8 @@ We can use that list to add some assertions to our existing test.
 ```
 
 We quickly run the tests again, and we're still green. I'm not _happy_ with this test because it repeats all the strings from the production code, and that's a smell, but for now I just want to get this class under test.
+
+## Using a coverage tool to identify missing tests
 
 Before we make deeper changes, we need to make sure we've covered all the functionality. To do that, I'm going to use [pytest-cov](https://pypi.org/project/pytest-cov/), a tool for reporting on test coverage in python codebases. I'm not generally a fan of test coverage tools: if we're practicing TDD, we'll end up with high coverage by default. In this case, thgouh, we're writing tests after the fact, and it'll help me to understand which parts of the code aren't yet being exercised.
 
@@ -367,6 +376,8 @@ What about the other lines?
 Okay, so here we're saying "if there's a next delivery, then send an email to the recipient with the updated ETA". We use the `map_service` again to calculate what that ETA is, so we can assume that the `update_average_speed` call from above will affect the travel time. 
 
 Great! So we've now read and understood the whole class. How do we get these lines under test?
+
+## Testing the MapService
 
 Our first snippet, from 49-58 will be exercised if we have a delivery schedule where:
 
@@ -528,6 +539,8 @@ def test_when_a_delivery_affects_the_schedule():
 
 Phew! With that, pytest-cov tells me I've reached 100% code coverage in the controller class.
 
+# Swapping Email for SMS
+
 ## Goals
 
 - [X] Get the existing code under test without changing behaviour
@@ -600,6 +613,8 @@ def test_a_single_delivery_is_delivered():
     )
 ```
 
+# Improving the design of the code
+
 ## Goals
 
 - [X] Get the existing code under test without changing behaviour
@@ -655,6 +670,8 @@ class DeliveryController:
 The first thing that sticks out at me is the loop. The `for i, delivery in enumerate` makes me sad for reasons I can't quite articulate. There's a bunch of places in the code where we're looking for `i + 1` or `i - 1` and it's kinda of hard to understand. What could we do instead?
 
 What we're trying to do here is take a list of deliveries and work out whether there are deliveries before or after the one we're updating. Why don't we make that operation explicit?
+
+## Replacing an ugly loop with a better data structure
 
 ```python
 @dataclass
@@ -737,6 +754,8 @@ class DeliveryController:
 [Commit 50279c](https://github.com/bobthemighty/DeliveryController-Refactoring-Kata/commit/50279cfc356f6bbef828167bb621f06dcbbd0b29)
 
 That's a _little_ better, but there's still a lot of noise. The next thing that's bugging me here is lines 15-23. There's a bunch of logic here for updating the state of our delivery that should probably live in our domain model.
+
+## Moving domain logic out of the controller
 
 Let's create a new method on the `Delivery` object to record the arrival. Again, this refactoring is trivial - we're just copying the code out of the controller and pasting it into the Delivery object:
 
@@ -851,7 +870,7 @@ class DeliveryController:
 
 That's definitely an improvement in my book!
 
-## Key Takeaways
+# Key Takeaways
 
 This was a fun kata, and it's useful to flex our legacy code muscles. We were given some code that was sort of hard to understand, so we used tests to check our assumptions about it, and to record the things we discovered.
 
