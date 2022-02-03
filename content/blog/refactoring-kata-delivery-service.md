@@ -12,7 +12,7 @@ I'm going to walk through the process I followed when solving the kata, and I'll
 
 The challenge set by the kata is to refactor a controller class so that we can replace some emails with text messages. The controller code is as follows:
 
-```python
+```python,linenos
 class DeliveryController:
 
     def __init__(self, delivery_schedule : list):
@@ -48,9 +48,9 @@ class DeliveryController:
 
 Phew! There's a lot going on here. I don't have any real context for understanding this code, except that it sends emails as part of a delivery service, and we want it to send SMS. Generally when I'm faced with a refactoring problem, I scan through the code - without reading in depth - looking for obvious clusters of functionality. There's enough happening here that I'm going to miss some nuances by reading the code, so I want to start testing my assumptions as quickly as possible. In this case, there's a lot of mingling of responsibilities, but we can still pick out some key ideas. 
 
-* We need to find a delivery matching the delivery event and mark it as "arrived"
-* We want to send a feedback email for the arrived delivery
-* If there is a next delivery, we want to send that recipient a message to let them know the currently estimated delivery time.
+* We need to find a delivery matching the delivery event and mark it as "arrived" (lines 9-12)
+* We want to send a feedback email for the arrived delivery (16-17)
+* If there is a next delivery, we want to send that recipient a message to let them know the currently estimated delivery time. (24-27)
 * There's some stuff I don't really understand about late deliveries and maps
 
 Refactoring is the process of improving the design of existing code, _guided by tests_. If you don't have test coverage for your changes, you're not refactoring, you're just rewriting. Before we can start to clean up this code, we need to get it under test. Step one is to write tests that describe the current behaviour. Once we've got those, we can start to change the code, knowing that we haven't broken the functionality.
@@ -224,7 +224,7 @@ test_delivery_service.py ..                                                     
 
 Our goal here is to get coverage of the existing behaviour. We've successfully run a test by passing a Stub implementation for EmailGateway. It's not a test that we can rely on, though, because it isn't testing how the EmailGateway is used. For that we're going to need to extend our test. First we'll modify the `FakeEmailGateway`.
 
-```python
+```python,linenos
 class FakeEmailGateway:
     def __init__(self):
         self.sent = []
@@ -237,7 +237,7 @@ Now our `FakeEmailGateway` is a Spy object. It looks like an EmailGateway but it
 
 We can use that list to add some assertions to our existing test.
 
-```
+```python,linenos
     assert len(gateway.sent) == 1
 
     [(address, subject, message)] = gateway.sent
@@ -249,7 +249,7 @@ We can use that list to add some assertions to our existing test.
 
 We quickly run the tests again, and we're still green. I'm not _happy_ with this test because it repeats all the strings from the production code, and that's a smell, but for now I just want to get this class under test.
 
-Before we make deeper changes, we need to make sure we've covered all the functionality. To do that, I'm going to use [pytest-cov](https://pypi.org/project/pytest-cov/), a tool for reporting on test coverage in python codebases. I'm not generally a fan of test coverage tools: if we're practicing TDD, we'll end up with high coverage by default. In this case, we're writing tests after the fact, and it'll help me to understand which parts of the code aren't yet being exercised.
+Before we make deeper changes, we need to make sure we've covered all the functionality. To do that, I'm going to use [pytest-cov](https://pypi.org/project/pytest-cov/), a tool for reporting on test coverage in python codebases. I'm not generally a fan of test coverage tools: if we're practicing TDD, we'll end up with high coverage by default. In this case, thgouh, we're writing tests after the fact, and it'll help me to understand which parts of the code aren't yet being exercised.
 
 ```bash
 bob@bobs-spangly-carbon ~/c/p/D/python (main)> pip install pytest-cov
