@@ -1,0 +1,46 @@
+body {
+    font-family: Coromorant Garamond;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+code {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+h1, h2, h3, h4, h5, h6, h7, h8 {
+    font-family: DM Sans;
+    font-weight: 700;
+    font-variation-settings: 'ital' 1;
+}
+
+
+pre {
+  padding: 1rem;
+  overflow: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1em;
+}
+// The line numbers already provide some kind of left/right padding
+pre[data-linenos] {
+  padding: 1rem 0;
+}
+pre table td {
+  padding: 0;
+}
+// The line number cells
+pre table td:nth-of-type(1) {
+  text-align: center;
+  user-select: none;
+}
+pre mark {
+  // If you want your highlights to take the full width.
+  display: block;
+  // The default background colour of a mark is bright yellow
+  background-color: rgba(254, 252, 232, 0.9);
+}
+pre table {
+  width: 100%;
+  border-collapse: collapse;
+}
