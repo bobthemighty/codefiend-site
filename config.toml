@@ -1,17 +1,26 @@
 # The URL the site will be built for
-base_url = "https://codefiend.co.uk"
+base_url = "https://www.codefiend.co.uk"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
+# Whether to do syntax highlighting
+# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = false
 
+title = "Confessions of a Codefiend"
+
+taxonomies = [
+    {name = "tags", rss = true, paginate_by = 5},
+]
+
 [markdown]
-# Whether to do syntax highlighting
-# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
 highlight_code = true
 highlight_theme = "kronuz"
 
 [extra]
 # Put all your custom variables here
+links = [
+]
