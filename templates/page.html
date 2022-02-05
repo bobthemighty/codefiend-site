@@ -17,7 +17,10 @@
             <span class="post-reading-time">{{ page.reading_time }} min read</span>
         </div>
     </header>
-    <div class="post-content">{{ page.content | safe }}</div>
+
+        <div class="post-content">
+            {{ page.content | replace(from="<!-- toc -->", to=post_macros::toc(toc=page.toc))  | safe }}
+        </div>
     <footer class="post-footer">
         {% if page.taxonomies.tags %}
         <ul class="post-tags">

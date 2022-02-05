@@ -19,6 +19,8 @@ I'm going to walk through the process I followed when solving the kata, and I'll
 
 <!-- more -->
 
+<!-- toc -->
+
 The challenge set by the kata is to refactor a controller class so that we can replace some emails with text messages. The controller code is as follows:
 
 ```python,linenos
