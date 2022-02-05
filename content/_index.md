@@ -1,9 +1,10 @@
 +++
-title = "List of blog posts"
+title = "Diary of a Code Fiend"
 sort_by = "date"
 template = "index.html"
 page_template = "page.html"
 
 [extra]
-author = "Maximilian Schönenberg"
+author = "Bob Gregory"
 +++
+
