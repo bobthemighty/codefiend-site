@@ -47,7 +47,7 @@
     font-size: 18px;
     line-height: 1.8;
     word-break: break-word;
-    background: var(--theme);
+    background: var(--code-bg);
   }
   article,
   aside,
@@ -168,6 +168,9 @@
     margin-left: auto;
     margin-right: auto;
     padding: var(--gap);
+    background: var(--theme);
+    border-radius: 2px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   }
   .page-header {
     margin-bottom: 24px;
