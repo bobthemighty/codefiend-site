@@ -68,11 +68,13 @@ Phew! There's a lot going on here. I don't have any real context for understandi
 
 Refactoring is the process of improving the design of existing code, _guided by tests_. If you don't have test coverage for your changes, you're not refactoring, you're just rewriting. Before we can start to clean up this code, we need to get it under test. Step one is to write tests that describe the current behaviour. Once we've got those, we can start to change the code, knowing that we haven't broken the functionality.
 
+{% paper(type="todo") %}
 ## Goals
 
 - [ ] Get the existing code under test without changing behaviour
 - [ ] Make it so that we can replace the emails with texts
 - [ ] See what else we can do to clean up the mess
+{% end %}
 
 First test looks like this:
 
@@ -551,11 +553,14 @@ Phew! With that, pytest-cov tells me I've reached 100% code coverage in the cont
 
 # Swapping Email for SMS
 
+
+{% paper(type="todo") %}
 ## Goals
 
 - [X] Get the existing code under test without changing behaviour
 - [ ] Make it so that we can replace the emails with texts
 - [ ] See what else we can do to clean up the mess
+{% end %}
 
 We've managed to get all the existing behaviour under test. The next step is to prepare the controller so that we can swap the email gateway for an SMS client. 
 
@@ -625,11 +630,13 @@ def test_a_single_delivery_is_delivered():
 
 # Improving the design of the code
 
+{% paper(type="todo") %}
 ## Goals
 
 - [X] Get the existing code under test without changing behaviour
 - [X] Make it so that we can replace the emails with texts
 - [ ] See what else we can do to clean up the mess
+{% end %}
 
 [Commit aa0518](https://github.com/bobthemighty/DeliveryController-Refactoring-Kata/commit/aa0518a2f6fb931fc6f8698d20366cc956a740ff)
 
@@ -881,6 +888,14 @@ class DeliveryController:
 That's definitely an improvement in my book!
 
 # Key Takeaways
+
+{% paper(type="todo") %}
+## Goals
+
+- [x] Get the existing code under test without changing behaviour
+- [x] Make it so that we can replace the emails with texts
+- [x] See what else we can do to clean up the mess
+{% end %}
 
 This was a fun kata, and it's useful to flex our legacy code muscles. We were given some code that was sort of hard to understand, so we used tests to check our assumptions about it, and to record the things we discovered.
 
