@@ -15,7 +15,7 @@ I spend a lot of time teaching TDD to engineers. Some of my most rewarding sessi
 
 Once I've introduced myself and the exercise, I always ask the same opening question: "What's the first test we should write?"
 
-I've found that TDD novices tend to make three common mistakes when starting their test suites.
+The answers are always interesting, because they tell me how the candidate thinks about TDD. If they have misconceptions, it's best to tackle them at the beginning. In my experience there are three common ways that people go wrong when choosing the first test.
 
 <!-- more -->
 <!-- toc -->
