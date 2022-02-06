@@ -109,7 +109,7 @@ class Game {
 
 For our next test we might check that the board is updated when we play
 
-```
+```ts
 it("should put the player's token on the board", () => {
     expect(game.get(0, 0)).toBe(Player.X);
 })

@@ -6,14 +6,16 @@
  * Updated in 2020.6.12
  */
 
+/* hacked to bits by Bob, www.codefiend.co.uk */
+
 /* Theme
 -------------------------------------------------- */
 @import '_include-media';
 :root {
     --gap: 1.2rem;
     --content-gap: 0.8rem;
-    --nav-width: 800px;
-    --main-width: 800px;
+    --nav-width: 880px;
+    --main-width: 880px;
     --header-height: 60px;
     --footer-height: 60px;
     --radius: 8px;
@@ -45,7 +47,7 @@
 
   @include media("screen", ">=desktop") {
     html {
-      font-size: 16px;
+      font-size: 17px;
     }
 
     .post-content pre,
@@ -67,7 +69,7 @@
 
    @include media("screen", ">phone", "<desktop") {
     html {
-      font-size: 14px;
+      font-size: 16px;
     }
   }
 
@@ -133,10 +135,7 @@
   b {
     font-weight: 500;
   }
-  ul {
-    margin: 0;
-    padding: 0;
-  }
+
   a {
     color: var(--primary);
     text-decoration: none;
@@ -221,10 +220,14 @@
     margin-left: auto;
     margin-right: auto;
     padding: var(--gap);
+  }
+
+  .single main {
     background: var(--theme);
     border-radius: 2px;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   }
+
   .page-header {
     margin-bottom: 24px;
   }
@@ -501,11 +504,7 @@
     background: transparent !important;
   }
   */
-  .post-content blockquote {
-    margin: 0 0 0 calc(var(--gap) * -1);
-    padding: 0 0 0 21px;
-    border-left: 3px solid var(--primary);
-  }
+
 
   .post-content hr {
     height: 1px;
