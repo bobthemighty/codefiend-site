@@ -16,8 +16,8 @@
     --content-gap: 0.8rem;
     --nav-width: 880px;
     --main-width: 880px;
-    --header-height: 60px;
-    --footer-height: 60px;
+    --header-height: 4rem;
+    --footer-height: 4rem;
     --radius: 8px;
   
     --theme: #fff;
@@ -265,8 +265,6 @@
   }
   .first-entry .entry-header {
     overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
   }
   .entry-header h2 { text-decoration: none; }
   .first-entry .entry-header h2 {
@@ -275,8 +273,7 @@
   .first-entry .entry-content {
     margin-top: 0.7rem;
     margin-bottom: 0.7rem;
-    font-size: 0.9rem;
-    -webkit-line-clamp: 3;
+    font-size: 1rem;
   }
   .first-entry .entry-footer {
     font-size: 0.7rem;
@@ -303,15 +300,13 @@
     margin-top: 0.4rem;
     margin-bottom: 0.4rem;
     color: var(--secondary);
-    font-size: 1rem;
+    font-size: 0.9rem;
     line-height: 1.6;
     overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
   }
   .entry-footer {
     color: var(--secondary);
-    font-size: 0.9rem;
+    font-size: 0.7rem;
   }
   .entry-link {
     position: absolute;
