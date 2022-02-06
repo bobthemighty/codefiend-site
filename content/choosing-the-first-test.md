@@ -18,6 +18,7 @@ Once I've introduced myself and the exercise, I always ask the same opening ques
 I've found that TDD novices tend to make three common mistakes when starting their test suites.
 
 <!-- more -->
+<!-- toc -->
 
 ## Asserting the trivial
 
