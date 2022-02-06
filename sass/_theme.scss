@@ -329,13 +329,14 @@
     margin-bottom: var(--content-gap);
   }
   .post-title {
-    margin-bottom: 2px;
+    margin-bottom: 2rem;
     font-size: 2.2rem;
     transform: translateX(-2px);
   }
   .post-meta {
     color: var(--secondary);
-    font-size: 14px;
+    font-size: 0.8rem;
+    margin-bottom: 2rem;
   }
   .post-content {
     color: var(--content);
@@ -373,7 +374,7 @@
     font-size: 0.8rem;
   }
   .post-content h6 {
-    font-size: 0.7remm;
+    font-size: 0.7rem;
   }
   .post-content a {
     box-shadow: 0 1px 0 var(--primary);

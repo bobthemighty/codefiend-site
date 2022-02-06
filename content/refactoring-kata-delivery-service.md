@@ -13,9 +13,9 @@ tags = ["refactoring", "kata", "python"]
 
 I've recently started a new role as an engineering coach, and I've been working through some katas to remember how to write code.
 
-I'm a huge fan of Emily Bache's work, and was particularly interested in the [Delivery Service refactoring kata](https://github.com/emilybache/DeliveryController-Refactoring-Kata) because it neatly captures some of the challenges of working with legacy codebases.
+I'm a huge fan of [Emily Bache](https://twitter.com/emilybache)'s work, and was particularly interested in the [Delivery Service refactoring kata](https://github.com/emilybache/DeliveryController-Refactoring-Kata) because it neatly captures some of the challenges of working with legacy codebases.
 
-I'm going to walk through the process I followed when solving the kata, and I'll include links to each commit so you can see the full code as we go. The repo is [here](https://github.com/bobthemighty/DeliveryController-Refactoring-Kata/)
+I'm going to walk through the process I followed when solving the kata, and I'll include links to each commit in [the Github repository](https://github.com/bobthemighty/DeliveryController-Refactoring-Kata/) so you can see the full code as we go.
 
 <!-- more -->
 
