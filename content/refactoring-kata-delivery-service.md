@@ -76,7 +76,7 @@ Refactoring is the process of improving the design of existing code, _guided by 
 - [ ] See what else we can do to clean up the mess
 {% end %}
 
-First test looks like this:
+Our first test looks like this:
 
 ```python
 def test_a_single_delivery_changing_location():

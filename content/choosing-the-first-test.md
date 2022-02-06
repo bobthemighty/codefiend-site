@@ -19,7 +19,7 @@ I've found that TDD novices tend to make three common mistakes when starting the
 
 <!-- more -->
 
-# Asserting the trivial
+## Asserting the trivial
 
 The most common mistake is to focus on testing things that are necessarily, or trivially, true. For example, in the Tic-Tac-Toe kata, the conversation might go like this:
 
@@ -48,11 +48,11 @@ def test_can_create_board():
 
 ### What's wrong with these tests?
 
-These tests don't help us to specify our solution. Instead, they're testing that the programming language works as it should. I think this stems from a thought process that runs: "I need to create a class, therefore I need to create a test that creates the class". The engineer is looking for a test that will cause them to write the code they've already decided on. 
+These tests don't help us to specify our solution. Instead, they're testing that the programming language works as it should. The only thing that could fail this test is a compiler error.
 
-This is back to front, though. Instead, we want to write a test that _specifies the behaviour of our code_ and let that tell us what the design ought to be. 
+I think the thought process runs: "I need to create a class, therefore I need to test that I create the class". The engineer is looking for a test that will cause them to write the code they've already decided on.
 
-We want to write the test as though our perfect code already existed, and then make it work.
+This is back to front, though. Instead, we want to write a test that _specifies the behaviour of our code_. The test will tell us what the design ought to be.  We want to write the test as though our perfect code already existed, and then make it work.
 
 One step up from testing the abstract concept of constructors is testing the specifics of our constructor. 
 
@@ -71,7 +71,7 @@ This is a little better, but still doesn't help us very much. Again, this test f
 
 ### What could we do differently?
 
-When we're looking for our first test, we should focus on a behaviour that we want from the system. That behaviour shouldn't be something that's guaranteed by the programming language (the `new` keyword returns an object) or something trivial (I didn't forget to set fields in the constructor). It should be something that moves us meaningfully forward. For example
+When we're looking for our first test, we should focus on a behaviour that we want from the system. That behaviour shouldn't be something that's guaranteed by the programming language (the `new` keyword returns an object) or something trivial (I set fields in the constructor). It should be something that moves us meaningfully forward. For example
 
 ```ts
 describe("When starting a new game", () => {
@@ -117,7 +117,7 @@ it("should put the player's token on the board", () => {
 
 And now we're off and away!
 
-# Negative outlook
+## Negative outlook
 
 The second mistake I see in TDD first-timers is starting with an error case. For example, we might choose the Leap Year kata. In this kata, we're asked to build code that can answer, true or false, whether a given year is a leap year.
 
@@ -159,7 +159,7 @@ test("a year is not a leap year if divisible by 400")
 
 Choosing a positive behaviour helps us to move our code in the right direction. We can worry about error cases at the very end, if at all.
 
-# Biting off more than they can chew
+## Biting off more than they can chew
 
 The last mistake I see a lot is beginners being too ambitious in their choice of first test. For example, when practising domain modelling techniques, we might use the Poker Hands Kata. This kata asks us to play one round of poker, scoring each player's cards as follows:
 
@@ -168,9 +168,7 @@ A poker hand consists of 5 cards dealt from the deck. Poker hands are ranked by 
 
 * High Card: Hands which do not fit any higher category are ranked by the value of their highest card. If the highest cards have the same value, the hands are ranked by the next highest, and so on.
 * Pair: 2 of the 5 cards in the hand have the same value. Hands which both contain a pair are ranked by the value of the cards forming the pair. If these values are the same, the hands are ranked by the values of the cards not forming the pair, in decreasing order.
-* Two Pairs: The hand contains 2 different pairs. Hands which both contain 2 pairs are ranked by the value of their highest pair. Hands with the same highest pair are ranked by the value of their other pair. If these values are the same the hands are ranked by the value of the remaining card.
 * Three of a Kind: Three of the cards in the hand have the same value. Hands which both contain three of a kind are ranked by the value of the 3 cards.
-* Straight: Hand contains 5 cards with consecutive values. Hands which both contain a straight are ranked by their highest card.
 * Flush: Hand contains 5 cards of the same suit. Hands which are both flushes are ranked using the rules for High Card.
 * Full House: 3 cards of the same value, with the remaining 2 cards forming a pair. Ranked by the value of the 3 cards.
 
