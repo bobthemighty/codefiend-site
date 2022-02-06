@@ -12,8 +12,8 @@
 :root {
     --gap: 1.2rem;
     --content-gap: 0.8rem;
-    --nav-width: 1200px;
-    --main-width: 1200px;
+    --nav-width: 800px;
+    --main-width: 800px;
     --header-height: 60px;
     --footer-height: 60px;
     --radius: 8px;
@@ -45,7 +45,7 @@
 
   @include media("screen", ">=desktop") {
     html {
-      font-size: 19px;
+      font-size: 16px;
     }
 
     .post-content pre,
@@ -67,7 +67,7 @@
 
    @include media("screen", ">phone", "<desktop") {
     html {
-      font-size: 18px;
+      font-size: 14px;
     }
   }
 
@@ -86,12 +86,10 @@
       padding: 0;
       overflow: auto;
     }
-
-
    }
    @include media("screen", "<=phone") {
     html {
-      font-size: 16px;
+      font-size: 12px;
     }
       }
   body {
