@@ -41,8 +41,9 @@
         <link rel="stylesheet" href="{{ get_url(path="main.css", trailing_slash=false) }}">
 
         <!-- Feeds -->
-        {% if config.generate_feed %}<link rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">{% endif %}
-
+        {% block rss %}
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml", trailing_slash=false) }}">
+        {% endblock %}
 
     </head>
     
