@@ -875,14 +875,14 @@ class DeliveryController:
 
     def update_delivery(self, delivery_event: DeliveryEvent):
         scheduled = self.delivery_schedule.find(delivery_event.id)
-        scheduled.delivery.arrive(delivery_event.time_of_delivery)
 
+        scheduled.delivery.arrive(delivery_event.time_of_delivery)
         self.notifier.request_feedback(scheduled.delivery)
 
-        scheduled.record_speed(self.map_service)
-
         if scheduled.next:
+            scheduled.record_speed(self.map_service)
             self.notifier.send_eta_update(scheduled.next.delivery, scheduled.eta(self.map_service))
+
 ```
 
 That's definitely an improvement in my book!
