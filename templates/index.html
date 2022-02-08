@@ -104,5 +104,52 @@
             <span>Source on <a href="https://github.com/bobthemighty/codefiend-site" target="_blank" rel="noopener">Github</a>
         </footer>
     {% endblock body %}
+    <script type="text/javascript">
+     // This is my home-brew, privacy-friendly stats script.
+     // I just want to get some anonymous info about my readers,
+     // the devices they use to read my blog, and what pages are
+     // linking to me.
+
+     // This is my fancy stats endpoint, you can read
+     // about it on this blog just as soon as I've done
+     // writing about it.
+     const endpoint = 'https://stats.codefiend.co.uk/v0'
+
+     // What time was it when you loaded this page?
+     let timestamp = Date
+
+     // I'd like to know what page you're looking at
+     // so I know what's popular...
+     let uri = window.location.href;
+
+     // ... and how you found me!
+     let referrer = document.referrer;
+
+     // Get the width rounded down to 50px
+     // this tells me how big my readers' screens are
+     // but is too inaccurate to identify you.
+     let width = window.innerHeight;
+     width -= width % 50;
+
+     // Lastly I'd like to know what browser you run
+     let userAgent = navigator.userAgent;
+
+     let hit = {
+         u: uri,
+         r: referrer,
+         t: timestamp
+         a: {
+             s: navigator.userAgent,
+             v: width
+         }
+     }
+
+     let headers = {
+      type: "application/json"
+     };
+
+     let blob = new Blob([JSON.stringify(inscreenCollection)], headers);
+     navigator.sendBeacon(endpoint, blob);
+    </script>
     </body>
 </html>
