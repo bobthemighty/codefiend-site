@@ -146,8 +146,11 @@
       "X-Api-Key": "gVAPFwd5xc90YQov7pwjl1zhGhHB1Ozw3yBSZmkW"
      };
 
-     let blob = new Blob([JSON.stringify(hit)], headers);
-     navigator.sendBeacon(endpoint, blob);
+     await fetch(endpoint,{
+           method: 'POST',
+           body: JSON.stringify(hit),
+           headers
+     });
     </script>
     </body>
 </html>
