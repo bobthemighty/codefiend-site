@@ -105,18 +105,14 @@
         </footer>
     {% endblock body %}
     <script type="text/javascript">
-     // This is my home-brew, privacy-friendly stats script.
+     // This is my home-brew, privacy-friendly, cookie-free stats script.
      // I just want to get some anonymous info about my readers,
      // the devices they use to read my blog, and what pages are
      // linking to me.
 
-     // This is my fancy stats endpoint, you can read
-     // about it on this blog just as soon as I've done
-     // writing about it.
-     const endpoint = 'https://stats.codefiend.co.uk/v0'
 
      // What time was it when you loaded this page?
-     let timestamp = Date
+     let timestamp = Date.now();
 
      // I'd like to know what page you're looking at
      // so I know what's popular...
@@ -137,18 +133,20 @@
      let hit = {
          u: uri,
          r: referrer,
-         t: timestamp
+         t: timestamp,
          a: {
-             s: navigator.userAgent,
+             s: userAgent,
              v: width
          }
      }
 
+     const endpoint = 'https://stats.codefiend.co.uk/'
      let headers = {
-      type: "application/json"
+      type: "application/json",
+      "x-api-key": "gVAPFwd5xc90YQov7pwjl1zhGhHB1Ozw3yBSZmkW"
      };
 
-     let blob = new Blob([JSON.stringify(inscreenCollection)], headers);
+     let blob = new Blob([JSON.stringify(hit)], headers);
      navigator.sendBeacon(endpoint, blob);
     </script>
     </body>
