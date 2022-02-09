@@ -104,53 +104,49 @@
             <span>Source on <a href="https://github.com/bobthemighty/codefiend-site" target="_blank" rel="noopener">Github</a>
         </footer>
     {% endblock body %}
-    <script type="text/javascript">
-     // This is my home-brew, privacy-friendly, cookie-free stats script.
-     // I just want to get some anonymous info about my readers,
-     // the devices they use to read my blog, and what pages are
-     // linking to me.
+        <script type="text/javascript">
+         // This is my home-brew, privacy-friendly, cookie-free stats script.
+         // I just want to get some anonymous info about my readers,
+         // the devices they use to read my blog, and what pages are
+         // linking to me.
+
+         // The code for the setup is at https://github.com/bobthemighty/codefiend-stats
 
 
-     // What time was it when you loaded this page?
-     let timestamp = Date.now();
+         // What time was it when you loaded this page?
+         let timestamp = Date.now();
 
-     // I'd like to know what page you're looking at
-     // so I know what's popular...
-     let uri = window.location.href;
+         // I'd like to know what page you're looking at
+         // so I know what's popular...
+         let uri = window.location.href;
 
-     // ... and how you found me!
-     let referrer = document.referrer;
+         // ... and how you found me!
+         let referrer = document.referrer;
 
-     // Get the width rounded down to 50px
-     // this tells me how big my readers' screens are
-     // but is too inaccurate to identify you.
-     let width = window.innerHeight;
-     width -= width % 50;
+         // Get the width rounded down to 50px
+         // this tells me how big my readers' screens are
+         // but is too inaccurate to identify you.
+         let width = window.innerHeight;
+         width -= width % 50;
 
-     // Lastly I'd like to know what browser you run
-     let userAgent = navigator.userAgent;
-
-     let hit = {
-         u: uri,
-         r: referrer,
-         t: timestamp,
-         a: {
-             s: userAgent,
+         let hit = {
+             u: uri,
+             r: referrer,
+             t: timestamp,
              v: width
          }
-     }
 
-     const endpoint = 'https://stats.codefiend.co.uk/'
-     let headers = {
-      "Content-Type": "application/json",
-      "X-Api-Key": "gVAPFwd5xc90YQov7pwjl1zhGhHB1Ozw3yBSZmkW"
-     };
+         const endpoint = 'https://stats.codefiend.co.uk/'
+         let headers = {
+             "Content-Type": "application/json",
+             "X-Api-Key": "gVAPFwd5xc90YQov7pwjl1zhGhHB1Ozw3yBSZmkW"
+         };
 
-     fetch(endpoint,{
-           method: 'POST',
-           body: JSON.stringify(hit),
-           headers
-     });
-    </script>
+         fetch(endpoint,{
+             method: 'POST',
+             body: JSON.stringify(hit),
+             headers
+         });
+        </script>
     </body>
 </html>
