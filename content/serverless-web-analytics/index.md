@@ -23,15 +23,19 @@ In the olden days, I'd get that data by scraping the access logs on the server, 
 
 I could install Google Analytics, but I personally hate cookies and tracking scripts. There are privacy conscious alternatives [^1], but - again - I'd have to open my wallet, and add a load of third party scripts to the page.
 
-No, that'll never do. We're going to have to build our own.
+No, that'll never do. We're going to have to build our own[^2].
 
-## Ye Olde Spec
 
-I want a web stats solution that is:
 
-* Anonymous: I really don't want to deal with cookies or GDPR considerations.
-* Cheap: this blog is currently _free_ to run, and I'd rather not spend much more than that.
-* Simple: whatever I deploy will need to be built and maintained by me when I'm not working, cooking, or bellowing at my children.
+{% paper(type="todo") %}
+## Goals
+
+I want a web stats solution that is
+
+- [ ] Anonymous: I really don't want to deal with cookies or GDPR considerations.
+- [ ] Cheap: this blog is currently _free_ to run, and I'd rather not spend much more than that.
+- [ ] Simple: whatever I deploy will need to be built and maintained by me when I'm not working, cooking, or bellowing at my children.
+{% end %}
 
 Here's what I've come up with:
 
@@ -96,14 +100,38 @@ Each of my log groups has a 1 day retention period so I don't end up paying for 
 
 So far so good! How much will it cost us?
 
-| Service | Comments    |  Costs |
-| --------|-------------|-----|
-| API Gateway | I've throttled the endpoint to 10k requests a day, so we should have at most 300k requests a month. There's also an OPTIONS method for CORS, but we can cache that in Cloudflare since it's static. | $0.33 |
-| Firehose | Our throttle limits requests to 1 per sec at steady state, so we should write at most 1 request per sec to kinesis | $0.39 |
-| S3 | Since we're batching writes, we'll make up to 4 writes an hour to S3, for a total of 2880 per month. We'll store less than 1Gb of data in total | $0.04 |
-| Lambda | We'll run 1 lambda for each new file in inbound, plus some more for compaction, so let's say 2 per file for a total of 6000 invocations. Each invocation should run for under a sec and use less than a Gb of memory | $0.00 |
-| Cloudwatch | Cloudwatch has an "always free" plan that more than covers our needs. | $0.00 |
+### API Gateway
+I've throttled the endpoint to 10k requests a day, so we should have at most 300k requests a month. There's also an OPTIONS method for CORS, but we can cache that in Cloudflare since it's static.  $0.33 
 
-I've probably forgotten something, and we'll have to pay a tiny amount for each Athena query we run, but we can see that this stack should cost us less than $0.80 a month in total.
+### Firehose
+
+Our throttle limits requests to 1 per sec at steady state, so we should write at most 1 request per sec to kinesis *$0.39*
+
+### S3
+
+Since we're batching writes, we'll make up to 4 writes an hour to S3, for a total of 2880 per month. We'll store less than 1Gb of data in total  *$0.04* 
+
+### Lambda
+We'll run 1 lambda for each new file in inbound, plus some more for compaction, so let's say 2 per file for a total of 6000 invocations. Each invocation should run for under a sec and use less than a Gb of memory. For that little usage, AWS won't bother charging us.  *$0.00* 
+
+### Cloudwatch
+
+Cloudwatch likewise has an "always free" plan that more than covers our needs. *$0.00*
+
+I've probably forgotten something, and we'll have to pay a tiny amount for each Athena query we run, but we can see that this stack should cost us less than $0.80 a month in total *even if* we get 10,000 visits a day, which seems improbable.
+
+
+
+{% paper(type="todo") %}
+## Goals
+
+- [x] Anonymous: no cookies or 3rd party scripts.
+- [x] Cheap: I can spare 80 cents, I guess.
+- [x] Simple: There's quite a few pieces involved, but each piece is very simple to manage.
+{% end %}
+
+
 
 [^1]: Both [Plausible.io](https://plausible.io) and [GetInsights.io](https://getinsights.io) were pretty tempting, but less fun than writing my own.
+
+[^2]: As an architect, I'm compelled to advise you _not_ to build your own stats system unless, like me, you're doing it for kicks and to save pennies. It definitely cost me more than $200 of software engineering time.
