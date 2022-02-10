@@ -11,7 +11,7 @@ author = "Bob Gregory"
 tags = ["stats", "thinking-serverless", "meta"]
 +++
 
-In this short blog series, we build our own web analytics solution from scratch using serverless technologies, just because we can.
+In this short blog series, we build our own web analytics solution from scratch using serverless technologies, just because we can. 
 
 <!-- more -->
 
@@ -130,7 +130,7 @@ I've probably forgotten something, and we'll have to pay a tiny amount for each 
 - [x] Simple: There's quite a few pieces involved, but each piece is very simple to manage.
 {% end %}
 
-
+I often hear from engineers that serverless is an expensive way to build software, but I think this shows that with care, you can build something _really_ cheap and robust out of serverless components.
 
 [^1]: Both [Plausible.io](https://plausible.io) and [GetInsights.io](https://getinsights.io) were pretty tempting, but less fun than writing my own.
 
