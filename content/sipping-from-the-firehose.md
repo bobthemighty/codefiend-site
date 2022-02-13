@@ -101,7 +101,7 @@ What we'd _like_ is to be able to stream large files, pulling out json objects a
 
 There are a few streaming JSON parsers out there already. Before writing this post I did a few spikes, with [NAYA](https://github.com/danielyule/naya) and [Yajl-py](https://github.com/pykler/yajl-py). Both seemed like reasonable options, but then I stumbled across the `raw_decode` method of the `JSONDecoder` in the python standard library.
 
-The `raw_decode` method does almost exactly what we want - it reads a string and extracts a JSON object from it, ignoring any data after the object closes. It also returns the index of the remaining data, so we can call the method in a loop.
+The `raw_decode` method does almost exactly what we want - it reads a string and extracts a JSON object from it, ignoring any data after the object closes. It also returns the index of the remaining data, so we can call the method a second time and read the next object.
 
 Reading the [source code for JSONDecoder](https://github.com/python/cpython/blob/f4c03484da59049eb62a9bf7777b963e2267d187/Lib/json/decoder.py#L343), we find that internally, it's using a `scanner` function. This is the magic we need. The scanner reads a string, and pulls a json object from the beginning. It then returns that object and the index of the string where the object finished. If there's no object found, it raises StopIteration
 
