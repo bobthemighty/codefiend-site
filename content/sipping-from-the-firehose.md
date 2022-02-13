@@ -1,14 +1,14 @@
 +++
 title = "Sipping from the firehose"
 slug = "parsing-kinesis-firehose-json-in-python"
-date = "2022-02-05"
-category = "kata"
+date = "2022-02-13"
+category = "oss"
 
 [extra]
 author = "Bob Gregory"
 
 [taxonomies]
-tags = ["tdd", "basics"]
+tags = ["python", "aws", "data"]
 +++
 
 Most solutions to reading Firehosed json data rely on pre-processing with a lambda, or struggle to deal with large files. A better solution is to use a streaming parser. Luckily, I have just the thing.
@@ -30,7 +30,7 @@ For example, one hit in our schema looks like this
 
 but when we receive multiple hits in a short space of time, they're written to the same file, in a continuous stream like this:
 
-```
+```json
 { "u": "https://codefiend.co.uk/parsing-kinesis-firehose-json-in-python", "r": "www.google.com","t": 1644670501, "v": 1900}{"u":"https://codefiend.co.uk/","r":"t.co","t":1644670500,v:500}{"u":"https://codefiend.co.uk/tackling-the-delivery-service-kata","r":"t.co","t":1644670517,v:950}
 ```
 
@@ -103,7 +103,7 @@ There are a few streaming JSON parsers out there already. Before writing this po
 
 The `raw_decode` method does almost exactly what we want - it reads a string and extracts a JSON object from it, ignoring any data after the object closes. It also returns the index of the remaining data, so we can call the method in a loop.
 
-Reading the [source code for JSONDecoder]()https://github.com/python/cpython/blob/f4c03484da59049eb62a9bf7777b963e2267d187/Lib/json/decoder.py#L343, we find that internally, it's using a `scanner`function. This is the magic we need. The scanner reads a string, and pulls a json object from the beginning. It then returns that object and the index of the string where the object finished. If there's no object found, it raises StopIteration
+Reading the [source code for JSONDecoder](https://github.com/python/cpython/blob/f4c03484da59049eb62a9bf7777b963e2267d187/Lib/json/decoder.py#L343), we find that internally, it's using a `scanner` function. This is the magic we need. The scanner reads a string, and pulls a json object from the beginning. It then returns that object and the index of the string where the object finished. If there's no object found, it raises StopIteration
 
 ```python
 from json import scanner, dumps
@@ -148,4 +148,4 @@ for entry in firehose_sipper.sip(bucket=some_bucket, prefix=some_prefix):
     print(entry)
 ```
 
-Now I can leave the Firehose to its default configuration, and read the results with a one-liner.
+Now I can leave the Firehose to its default configuration, skip the dumb lambdas, and read the results with a one-liner.
