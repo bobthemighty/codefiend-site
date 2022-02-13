@@ -15,7 +15,7 @@ Most solutions to reading Firehosed json data rely on pre-processing with a lamb
 
 <!-- more -->
 
-As part of building out our home-brewed stats system, we need to write a couple of lambdas to read the stored metrics. These metrics are written as JSON blobs to S3 by Kinesis Firehose. The individual hits are recorded as json objects, but Firehose has an interesting quirk - it writes files full of json objects concatenated together, with no delimiter.
+As part of building out our [home-brewed stats system](@/serverless-web-analytics/index.md), we need to write a couple of lambdas to read the stored metrics. These metrics are written as JSON blobs to S3 by Kinesis Firehose. The individual hits are recorded as json objects, but Firehose has an interesting quirk - it writes files full of json objects concatenated together, with no delimiter.
 
 For example, one hit in our schema looks like this
 
