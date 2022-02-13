@@ -11,7 +11,7 @@ author = "Bob Gregory"
 tags = ["python", "aws", "data"]
 +++
 
-Most solutions to reading Firehosed json data rely on pre-processing with a lambda, or struggle to deal with large files. A better solution is to use a streaming parser. Luckily, I have just the thing.
+Kinesis Firehose writes concatenated JSON objects to S3. Most python solutions to reading the data back out rely on pre-processing with a lambda, or struggle to deal with large files. A better solution is to use a streaming parser. Luckily, I have just the thing.
 
 <!-- more -->
 
