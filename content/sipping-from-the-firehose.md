@@ -133,7 +133,7 @@ def test_scanner():
         scan(data, idx)
 ```
 
-I've written a little package using this technique that can stream large files straight out of S3, and read the concatenated JSON objects.
+I've written a little package called [firehose-sipper](https://github.com/bobthemighty/firehose-sipper) using this technique that can stream large files straight out of S3, and read the concatenated JSON objects.
 
 ```python
 import firehose_sipper
