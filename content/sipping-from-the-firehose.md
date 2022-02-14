@@ -11,7 +11,7 @@ author = "Bob Gregory"
 tags = ["python", "aws", "data"]
 +++
 
-Kinesis Firehose writes concatenated JSON objects to S3. Most python solutions to reading the data back out rely on pre-processing with a lambda, or struggle to deal with large files. A better solution is to use a streaming parser. Luckily, I have just the thing.
+Kinesis Firehose writes concatenated JSON objects to S3. Most python solutions to reading the data rely on pre-processing with a lambda, or struggle to deal with large files. A better solution is to use a streaming parser. Luckily, I have just the thing.
 
 <!-- more -->
 
@@ -34,72 +34,11 @@ but when we receive multiple hits in a short space of time, they're written to t
 { "u": "https://codefiend.co.uk/parsing-kinesis-firehose-json-in-python", "r": "www.google.com","t": 1644670501, "v": 1900}{"u":"https://codefiend.co.uk/","r":"t.co","t":1644670500,v:500}{"u":"https://codefiend.co.uk/tackling-the-delivery-service-kata","r":"t.co","t":1644670517,v:950}
 ```
 
-This breaks the python json parser, which is only built to handle a single object at a time.
-
-## Why the other solutions suck
-
-The three common solutions to the problem are 
-
-1. Pre-process the data with a lambda 
-2. Post-process the data with `str.split()`
-3. Use [Dynamic Partioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html#dynamic-partitioning-new-line-delimiter) to process the data in-flight and add a newline delimiter
-
-Let's take them one at a time.
-
-### Pre-process in a lambda
-
-This is the most common solution I see. The idea is that we can attach a lambda function to the kinesis firehose so that we process the data before writing it to S3. We can use this to insert a newline character after each record so that our python can parse each line separately.
-
-This strikes me as deeply inelegant. It means calling a lambda function every time we write a record, which can get expensive, and that lambda function is just appending one character to a base64 encoded blob.
-
-```python
-import base64
-
-output = []
-
-def lambda_handler(event, context):
-    
-    for record in event['records']:
-    
-        # decode the base64 encoded record
-        payload = base64.b64decode(record['data']).decode('utf-8')
-
-        # append one character
-        row_w_newline = payload + "\n"
-
-        # and encode it again
-        row_w_newline = base64.b64encode(row_w_newline.encode('utf-8'))
-        
-        # then return the new record to kinesis for writing
-        output_record = {
-            'recordId': record['recordId'],
-            'result': 'Ok',
-            'data': row_w_newline
-        }
-        output.append(output_record)
-
-    return {'records': output}
-```
-
-It _works_ but it's ungainly, and not cost effective at volume.
-
-### Use Dynamic Partitioning
-
-Amazon have added the ability to control the key used when writing data to S3. As part of that change, they also added an option to append a newline to each record. I suspect this is actually just a lambda under the hood, so it's really option 1, but Amazon builds it for you.
-
-There's a small cost associated with dynamic partitioning, but this remains a _sensible_ option. If we were going to be sensible, though, we wouldn't bother building our own analytics system in the first place.
-
-### Post-process when reading the data
-
-Alternatively, we could split the data when we read it back. Given the string `{"a:"1, "b":2}{"a":3, "b":4}` we can run a regex or `str.split()` to give us two separate strings, and then parse those individually.
-
-This method requires that we load the whole file into memory so that we can split it. For small files that might be okay, but some of the files in our S3 bucket might be prohibitively large. 
-
-What we'd _like_ is to be able to stream large files, pulling out json objects as we encounter them. 
+This breaks the python json parser, which is only built to handle a single object at a time. I've seen some solutions around the internet that either use a lambda to add delimiters to the data[^1] before it's written to S3, or read the whole file into memory, and split it apart[^2] before processing it. What we'd _like_ is to be able to stream large files, pulling out json objects as we encounter them. I found it surprising that there wasn't much information on how to deal with Kinesis' default processing mode in Python, which is probably the most common data-enginering language in AWS.
 
 ## Streaming JSON for fun and profit
 
-There are a few streaming JSON parsers out there already. Before writing this post I did a few spikes, with [NAYA](https://github.com/danielyule/naya) and [Yajl-py](https://github.com/pykler/yajl-py). Both seemed like reasonable options, but then I stumbled across the `raw_decode` method of the `JSONDecoder` in the python standard library.
+There are a few streaming JSON parsers out there already. Before writing this post I did a few spikes, with [NAYA](https://github.com/danielyule/naya)[^3] and [Yajl-py](https://github.com/pykler/yajl-py)[^4]. Both seemed like reasonable options, but then I stumbled across the `raw_decode` method of the `JSONDecoder` in the python standard library.
 
 The `raw_decode` method does almost exactly what we want - it reads a string and extracts a JSON object from it, ignoring any data after the object closes. It also returns the index of the remaining data, so we can call the method a second time and read the next object.
 
@@ -148,4 +87,12 @@ for entry in firehose_sipper.sip(bucket=some_bucket, prefix=some_prefix):
     print(entry)
 ```
 
-Now I can leave the Firehose to its default configuration, skip the dumb lambdas, and read the results with a one-liner.
+Now I can leave the Firehose to its default configuration, skip the extra lambdas, and read the results with a one-liner.
+
+[^1]: For example [Append Newline to Amazon Kinesis Firehose JSON Formatted Records with Python and AWS Lambda](https://medium.com/analytics-vidhya/append-newline-to-amazon-kinesis-firehose-json-formatted-records-with-python-f58498d0177a)
+
+[^2]: Eg. the Stackoverflow question "[Reading the data written to s3 by Amazon Kinesis Firehose stream](https://stackoverflow.com/questions/34468319/reading-the-data-written-to-s3-by-amazon-kinesis-firehose-stream)"
+
+[^3]: [naya.py](https://gist.github.com/bobthemighty/9f4fd8fbb2435b8f6b8cf191dabdf37a#file-naya-py)
+
+[^4]: [yajl.py](https://gist.github.com/bobthemighty/9f4fd8fbb2435b8f6b8cf191dabdf37a#file-yajl-py)
