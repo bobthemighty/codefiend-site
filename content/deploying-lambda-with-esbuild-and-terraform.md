@@ -413,7 +413,7 @@ resource "aws_cloudwatch_event_target" "invoke_lambda" {
 
 We attach a _target_ to our rule. This tells EventBridge "whenever the rule say-hello-every-minute fires, invoke this lambda function".
 
-Lastly, of course, we need to grant permission for EventBridge to call our function because _Eventbridge is forbidden to invoke our function by defaut_
+Lastly, of course, we need to grant permission for EventBridge to call our function because _Eventbridge is forbidden to invoke our function by default._
 
 ```
 resource "aws_lambda_permission" "allow_cloudwatch" {
