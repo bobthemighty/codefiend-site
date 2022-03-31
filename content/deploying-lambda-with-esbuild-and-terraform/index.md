@@ -300,6 +300,8 @@ We've deployed a function, but we haven't configured anything to invoke it. As a
 
 After navigating to our function in the AWS console, we can create a test event and use it to invoke our function. Success!
 
+![Lambda test successful](successful-test.png)
+
 There's a problem, though - our function doesn't write any logs to Cloudwatch. Although we can see the log output when we run the code ourseles, it isn't persistently available. That's because _logging is forbidden by default_. Before our function can create logs in Cloudwatch, we'll need to grant it access. 
 
 Back to Terraform!
@@ -390,6 +392,8 @@ Now we can `make deploy again`. This time, Terraform tells us that it's going to
 
 Back in the AWS console, now when we test our function, we get persistent logs in Cloudwatch.
 
+![Persistent logs in Cloudwatch](persistent-log.png)
+
 ## Configuring the eventbridge trigger
 
 (git commit [e52e8](https://github.com/bobthemighty/esbuild-terraform-Lambda/commit/e52e8e5cfc5abec895457673df718d160defa255))
@@ -433,6 +437,7 @@ This uses the `aws_Lambda_permission` resource and permits our target to invoke 
 
 With that done, we jump back to our terminal and make deploy. After a few minutes, we should see our scheduled invocations in the logs.
 
+![Persistent logs in Cloudwatch](scheduled-invocations.png)
 
 
 # Summary
