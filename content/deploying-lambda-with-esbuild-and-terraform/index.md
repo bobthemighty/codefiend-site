@@ -59,7 +59,7 @@ This gives us a function `handler` that will write a string like "Hello world. T
 
 To deploy our Lambda function, we'll need to compile our Typescript into plain Javascript, bundle it up and turn it into a zip file. We're using esbuild, a fast JS and Typescript bundler written in Go. Creating our bundle is a single shell command.
 
-```bash
+```console
  esbuild \
     --bundle src/handler.ts \
     --target=node14 \
@@ -135,7 +135,7 @@ We can show the dependencies between the files and tasks in our makefile in a si
 
 Expressing our dependencies this way means we can check out the repository on any \*nix machine, run the `make` command and get a working bundle.
 
-```shell
+```console
 bob@bobs-spangly-carbon ~/c/p/esbuild> make
 mkdir -p build
 npm ci
@@ -168,7 +168,7 @@ We've created a zip file containing our Lambda file, but we need to deploy it to
 
 I'm keeping my Terraform scripts in the "/infra" directory of the project. The first thing to add is a new file, main.tf that configures Terraform to talk to AWS.
 
-```
+```tf
 terraform {
  required_providers {
    aws = {
@@ -186,7 +186,7 @@ For our hobbyist use-case this is all I need. In a production codebase, you almo
 
 To manage Terraform versions, I use [`tfenv`](https://github.com/tfutils/tfenv). This lets me switch between versions of Terraform when I change projects.
 
-```shell
+```console
 bob@bobs-spangly-carbon ~/c/p/esbuild2> tfenv use 1.1.7
 Switching default version to v1.1.7
 Switching completed
@@ -196,7 +196,7 @@ Switching completed
 
 With Terraform set up, we can write the script to manage our Lambda function.
 
-```Terraform
+```tf
 resource aws_lambda_function lambda {
   filename      = var.package_filename
   function_name = var.lambda_function_name
@@ -215,7 +215,7 @@ We use Terraform's [`aws_lambda_function`](https://registry.Terraform.io/provide
 
 Notice on line 4, we have to provide an ARN (a unique identifier) for a role. This is the set of permissions that our Lambda function will have when it executes. We need to define that role in our Terraform script, too.
 
-```Terraform
+```tf
 data aws_iam_policy_document assumption_policy {
   statement {
     sid = "assumeRole"
@@ -254,7 +254,7 @@ deploy: package
 
 Now we can jump to our terminal and type `make deploy`. Terraform will spin up, and figure out a plan to deploy our function. When prompted, type we type yes to deploy our function.
 
-```
+```console
 bob@bobs-spangly-carbon ~/c/p/esbuild2 > make deploy
 terraform -chdir=infra \
 	apply -var package_filename=/home/bob/code/play/esbuild2/build/package.zip
@@ -312,7 +312,7 @@ Back to Terraform!
 
 We need to add a new policy to our Lambda role that allows it to create Log Groups and write log events. We'll start with the policy document.
 
-```Terraform
+```tf
 data aws_iam_policy_document cloudwatch_logs {
   statement {
     sid = "createLogGroup"
@@ -333,7 +333,7 @@ This policy allows three actions, "CreateLogGroup" "CreateLogStream", and "PutLo
 
 All Lambda functions try to write to a log group with the name `/aws/lambda/$NAME_OF_FUNCTION`. Each instance of our Lambda function will create a new stream in that group, and write log events to it until the it's terminated. The ARN for a log group is a painfully ugly string that includes the name, the account ID, and the region. I'm generating mine as a local variable.
 
-```Terraform
+```tf
 locals {
   log_group_arn = "arn:aws:logs:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:log-group:/aws/lambda/${var.lambda_function_name}:*"
 }
@@ -343,7 +343,7 @@ This local variable results in a string like "arn:aws:logs:eu-west-1:1234567890:
 
 We add our new policy to the existing Lambda role:
 
-```Terraform
+```tf
 resource aws_iam_role iam_for_lambda {
   name = "${var.lambda_function_name}-executor"
   assume_role_policy = data.aws_iam_policy_document.assumption_policy.json
@@ -357,7 +357,7 @@ resource aws_iam_role iam_for_lambda {
 
 Now we can `make deploy again`. This time, Terraform tells us that it's going to update our existing Lambda role to add the new policy.
 
-```shell
+```console
  # aws_iam_role.iam_for_lambda will be updated in-place
   ~ resource "aws_iam_role" "iam_for_lambda" {
         id                    = "say-hello-executor"
@@ -402,7 +402,7 @@ We're nearly there! We've bundled our code, deployed a function, and granted it 
 
 The last thing we want to do is add our scheduled trigger. EventBridge scheduled triggers are like Cron for the cloud. In our case, we want to call our function every minute.
 
-```Terraform
+```tf
 resource "aws_cloudwatch_event_rule" "every_minute" {
   name = "${var.lambda_function_name}-every-minute"
   schedule_expression = "rate(1 minute)"
@@ -411,7 +411,7 @@ resource "aws_cloudwatch_event_rule" "every_minute" {
 
 This sets ups a new event rule named `say-hello-every-minute`. Our rule is scheduled to occur every 1 minute.
 
-```Terraform
+```tf
 resource "aws_cloudwatch_event_target" "invoke_lambda" {
   rule      = aws_cloudwatch_event_rule.every_minute.name
   arn       = aws_lambda_function.lambda.arn
@@ -423,7 +423,7 @@ We attach a _target_ to our rule. This tells EventBridge "whenever the rule say-
 
 Lastly, of course, we need to grant permission for EventBridge to call our function because _Eventbridge is forbidden to invoke our function by default._
 
-```
+```tf
 resource "aws_lambda_permission" "allow_cloudwatch" {
   statement_id  = "AllowExecutionFromCloudWatch"
   action        = "lambda:InvokeFunction"
