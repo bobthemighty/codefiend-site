@@ -39,18 +39,6 @@ const items = [
 ];
 
 
-// This function prints the state of our items
-// to a string
-
-const printState = (day: string) => {
-  const result = [`-------- day ${day} --------`];
-  result.push("name, sellIn, quality");
-  items.forEach((item) =>
-    result.push(`${item.name}, ${item.sellIn}, ${item.quality}`)
-  );
-  return result.join("\n");
-};
-
 const gildedRose = new GildedRose(items);
 const days = [...Array(20).keys()];
 
@@ -58,7 +46,7 @@ for (const d in days) {
 
   // run an approval test for this day
   test(`Approval: Day ${d}`, () => {
-    expect(printState(d)).toMatchSnapshot(`day-${d}`);
+    expect(items).toMatchSnapshot(`day-${d}`);
   });
 
   // and update the quality
@@ -103,34 +91,28 @@ if (
 If we remove the `name != "Aged Brie"`from this conditional, we'll get 20 failed snapshot tests with helpful diffs on the command line
 
 ```console
- ● Gilded rose › Approval: Day 1
+ ● Approval: Day 0
 
     expect(received).toMatchSnapshot(hint)
 
-    Snapshot name: `Gilded rose Approval: Day 1: day-1 1`
+    Snapshot name: `Approval: Day 0: day-0 1`
 
     - Snapshot  - 1
     + Received  + 1
 
-    @@ -1,9 +1,9 @@
-      -------- day 1 --------
-      name, sellIn, quality
-      +5 Dexterity Vest, -10, 0
-    - Aged Brie, -18, 38
-    + Aged Brie, -18, 1
-      Elixir of the Mongoose, -15, 0
-      Sulfuras, Hand of Ragnaros, 0, 80
-      Sulfuras, Hand of Ragnaros, -1, 80
-      Backstage passes to a TAFKAL80ETC concert, -5, 0
-      Backstage passes to a TAFKAL80ETC concert, -10, 0
-
-      48 |     gildedRose.updateQuality();
-      49 |   }
-    > 50 | });
-         |              ^
-      51 |
-
-      at Object.<anonymous> (test/acceptance.spec.ts:50:29)
+    @@ -4,11 +4,11 @@
+          "quality": 0,
+          "sellIn": -10,
+        },
+        Item {
+          "name": "Aged Brie",
+    -     "quality": 38,
+    +     "quality": 1,
+          "sellIn": -18,
+        },
+        Item {
+          "name": "Elixir of the Mongoose",
+          "quality": 0,
 ```
 
 I'm surprised this didn't occur to me before but, as a Jest user, it will definitely save me some time setting up approval tests in the future.
