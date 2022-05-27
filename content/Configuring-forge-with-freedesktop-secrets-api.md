@@ -30,6 +30,15 @@ bob@bobs-spangly-carbon ~> secret-tool store \
 In my case, my github username is bobthemighty, so I provide the user `bobthemighty^forge`. The `^forge` at the end is used by Magit as a discriminator so it can find the right set of credentials.
 That'll prompt you for a password, and you'll need to enter the token from before.
 
+```console
+bob@bobs-spangly-carbon ~> secret-tool store \
+  --label='Forge Github token' \
+  host api.github.com \
+  user $USERNAME^forge
+
+Password: ghp_TwEeTTweEtSaYsTheBirDyASItfliesPAst1
+```
+
 Lastly, you need to configure Magit to read secrets from the secrets api.
 
 ```lisp
