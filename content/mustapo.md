@@ -36,7 +36,9 @@ I'm going to define these here, because people often ask me if it's written down
 
 ## Modifiability
 
-A system is modifiable if you can change its behaviour. I have written code, small scripts or batch jobs, where I _never_ needed to change the code after it was written. In those cases, write whatever scruffy garbage will pass muster.
+A system is modifiable if you can change its behaviour. 
+
+I have written code, small scripts or batch jobs, where I _never_ needed to change the code after it was written. In those cases, write whatever scruffy garbage will pass muster.
 
 I have written code where non-technical users needed to configure the behaviour at run time with a rules engine, eg. to configure the rules for shipping parcels, or to configure the rules for detecting problems in IoT data. 
 
@@ -46,7 +48,9 @@ A broken system is a system that can't keep pace with the changes demanded by it
 
 ## Usability
 
-A system is usable if it satisfies its functional requirements without pissing people off. It's helpful to expand your definition of "user" for this category. I've written systems that did nothing but read from a message queue, perform some logic, and send another message. These systems still have users: their users are the downstream consumers of the messages, and the poor engineers who have to deploy and troubleshoot the system during an incident.
+A system is usable if it satisfies its functional requirements without pissing people off. 
+
+It's helpful to expand your definition of "user" for this category. I've written systems that did nothing but read from a message queue, perform some logic, and send another message. These systems still have users: their users are the downstream consumers of the messages, and the poor engineers who have to deploy and troubleshoot the system during an incident.
 
 Consider the devices that your users will work with. Sometimes your users will be using your system on a tablet, while wearing gloves, in a messy workshop. Sometimes your users will be on a locked-down browser in a cubicle. Sometimes your users will be blind, or elderly. How does this affect the way that people need to interact with your system?
 
@@ -80,11 +84,11 @@ A broken system is one that is full of bugs, because it's too hard, or too expen
 
 A system is available if it responds to a request. It's unavailable if it's down for maintenance, or just kaput.
 
-Think about the required up time for your system. Maybe you are building a system that has to run 24x7 and supports some horrendously expensive financial process. Maybe you're building a system that runs a batch job once a week. If it fails the first time, but succeeds on the 8th attempt, is that okay? Is it okay if it's not available at the weekend? How many times per day can a user see the "oops, we know there's a problem here."
+Think about the required up time for your system. Maybe you are building a system that has to run 24x7 and supports some horrendously expensive financial process. Maybe you're building a system that runs a batch job once a week. If it fails the first time, but succeeds on the 8th attempt, is that okay? Is it okay if it's not available at the weekend? How many times per day can a user see the "oops, we know there's a problem here" message?
 
 If your system is _down_, does that matter? What will it cost you?
 
-To increase availability, we can look at redundancy of critical components, like database servers, or we can construct fancy deployment systems where we roll out a new version to 1% of traffic at a time.
+To increase availability, we can look at redundancy of critical components, like database servers, or find ways for individual components to fail gracefully.
 
 A broken system doesn't respond when it's needed.
 
@@ -94,11 +98,11 @@ This one's a bit of a cheat, because it's really three architectural qualities i
 
 Throughput is the number of requests that we can satisfy in some time period. I'm working with an IOT system at the moment, where we receive a few thousand metrics every minute. 
 
-Latency is the time it takes for us to satisfy a single request. In my case, a metric arrives at our ingest endpoint, and we push it through a series of lambda functions over the course of a few minutes.
+Latency is the time it takes for us to satisfy a single request. In my case, a metric arrives at our ingest endpoint, and we push it through a series of Lambda functions over the course of a few minutes. Each function has its own latency and throughput limits, which ladder up to the total latency of the system.
 
-Scalability is the ability to maintain some level of performance when we add capacity to the system. As we bring on new customers, they will each start sending us gajillions of metrics. To scale, we need to be run more lambda functions in parallel so that we can keep up with the increased volume. Because we can easily add more capacity for a linearly increasing price, we say that this system scales well.
+Scalability is the ability to maintain some level of performance when we add capacity to the system. As we bring on new customers, they will each start sending us gajillions of metrics. To scale, we can run more Lambda functions in parallel so that we can keep up with the increased volume. Because we can easily add more capacity for a linearly increasing price, we say that this system scales well.
 
-You can go really fast by keeping everything in memory on a single computer, but that will hit a throughput limit pretty quickly, and you can't scale it.
+You can go really fast by keeping everything in memory on a single computer, but that will hit a throughput limit pretty quickly, and there's a hard limit on scaling: how big can one computer be?
 
 If you add a database server, and a bunch of web servers, then you increase throughput, at the expense of latency. Web servers generally scale horizontally - you can just keep throwing more servers up, but databases do not. Instead we generally have to shard data, or make our database server arbitrarily huge and expensive.
 
@@ -117,7 +121,7 @@ Observability is not the same as monitoring. It's not just about errors, or abou
 As with testability, I like to think about the use-cases of my system. For each use case, what signal do I need to understand whether it's working correctly? For example, in my current system, we ingest a butt load of IoT data, and process it so that we can run ML models on it. I want to observe:
 
 * How big is the butt-load of data arriving every minute?
-* How often does we fail to receive data?
+* How often do we fail to receive data?
 * How many unique data points do we process at each step?
 * How long does each step take?
 * What's the end-to-end latency of the whole thing?
