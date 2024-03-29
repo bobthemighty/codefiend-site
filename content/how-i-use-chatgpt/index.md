@@ -16,6 +16,8 @@ I've had a few conversations recently about ChatGPT and how useful it is (or isn
 
 <!-- more -->
 
+## What are we building?
+
 I want to build a piece of software to use in our build pipeline. CarbonRe use a monorepo approach, and currently, we have to build and deploy every part of the stack together. Instead, every time we build an artifact - a docker image or a lambda function - I want to write a record of that artifact into a database. When I deploy our system, using Terraform and the Serverless Framework, I want to read the artifact versions from that database. 
 
 This will allow me to only build the pieces that have actually changed, but still be able to give a complete list of version numbers to Terraform.
