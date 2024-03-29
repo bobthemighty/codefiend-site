@@ -206,7 +206,7 @@ This is sort of like event-sourcing, in that the state of the system is stored a
 
 ### Rage against the machine
 
-I have a few attempts with Chad, to get it to understand the concept. I should probably just have been more explicit about what I intended, instead of giving cryptic hints.
+I have a few attempts with Chad, to get it to understand the concept. I should probably just have been more explicit about what I intended, instead of giving cryptic hints. This process is a lot like pair programming with a talented but hapless junior engineer. I'm looking for things that will make the code clearer, and correcting mistakes in the design.
 
 <dl>
 <dt>You</dt>
