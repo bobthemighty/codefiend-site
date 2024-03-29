@@ -400,7 +400,7 @@ That means *I probably wouldn't have done this at all*: taking a whole day to bu
 
 ## What's bad?
 
-The code is _not good_. After I'd finished this, and the second script which uploads all the artifacts from our build process, I then *completely rewrote this code*. Chad ended up with a bunch of functions that had 6 arguments, the layering was wrong which made things more complicated than they needed to be, and so on. Chad is not a good software designer, but it _is_ an excellent generator of mediocre code.
+The code is _not good_. It's clean enough, but it's just a throwaway script. It won't support us adding more complex requirements. After I'd finished this, and the second script which uploads all the artifacts from our build process, I then *completely rewrote this code*. Chad ended up with a bunch of functions that had 6 arguments, the layering was wrong which made things more complicated than they needed to be, and so on. Chad is not a good software designer, but it _is_ an excellent generator of mediocre code.
 
 Here's a snippet of the current working version
 
