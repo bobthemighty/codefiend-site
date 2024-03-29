@@ -284,8 +284,9 @@ if __name__ == '__main__':
 </dd>
 </dl>
 
+### Making tricky changes
 
-Finally, although this is going to be a small table, and this script will only run a few times per day, I'd like to reduce the network calls to the minimum. My idea is that if we're running Github Actions, I can cache the dynamo response for the duration of a single deployment, so that I can call "fetch_artifact" as many times as I like without further requests to Dynamo. Again, this is conceptually trivial, but would take me a little while to think about and to write.
+Finally, although this is going to be a small table, and this script will only run a few times per day, I'd like to reduce the network calls to the minimum. My idea is that if we're running Github Actions, I can cache the Dynamo response for the duration of a single deployment, so that I can call "fetch_artifact" as many times as I like without further requests to Dynamo. Again, this is conceptually trivial, but would take me a little while to think about and to write.
 
 <dl class="chad">
 <dt>You</dt>
