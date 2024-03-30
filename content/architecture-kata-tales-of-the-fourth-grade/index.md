@@ -227,7 +227,7 @@ Unsurprisingly, I'm going to plump for Honeycomb here. $130/month gets us 100M e
 
 # Wrap up
 
-So there we have it - a design for a comprehensive student management system, cranked out in a couple of hours. I'm not totall happy with it, there are some lurking unknowns over Authentication, and I never really thought about the forums or grading problems, but it'll do as a first pass.
+So there we have it - a design for a comprehensive student management system, cranked out in a couple of hours. I'm not totally happy with it, there are some lurking unknowns over Authentication, and I never really thought about the forums or grading problems, but it'll do as a first pass.
 
 ### Things to note
 
