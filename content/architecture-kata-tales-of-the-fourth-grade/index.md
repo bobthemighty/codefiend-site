@@ -231,4 +231,10 @@ This design would _probably_ be good enough to convince a group of engineers tha
 
 Using a structured process this way helps us get to that first pass quickly, and reduces the risk of missing something super obvious.
 
+<div class="notepaper">
+<div class="content">
+
 [^1]: I would like to apologise to my physics teacher, Mr Boler. My dad ended up on a first-aid course with him and discovered that I hadn't done any homework for 6 months. He needed this app.
+
+</div></div>
+
