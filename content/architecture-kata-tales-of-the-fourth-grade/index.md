@@ -110,7 +110,7 @@ There's a handful of use-cases given, which all sound fairly straightforward exc
 
 We're building this for "faculty, staff, and student parents", and there's a particular requirement that we can use it from the playground. That means we're going to want to start with a mobile-first experience. There's no point building a .Net desktop app if most of your users are going to be using smartphones. 
 
-Schools aren't going to want to cop any flak for incompatibility with particular devices - nobody wants to be the snob school that only has an iOS app - so we're probably building a mobile-first web application. Maybe later we can gussy it up and make a progressive web app or something. Is that still a thing?
+We want to aim for broad compatability - nobody wants to be the snob school that only has an iOS app - so we're probably building a mobile-first web application. Maybe later we can gussy it up and make a progressive web app or something. Is that still a thing?
 
 We probably don't need to think too much about an offline component. If we expected that users needed to work in a remote location for extended periods, we might want some kind of offline sync approach, but I'm guessing that most schools have wi-fi, or are at least in areas with decent mobile coverage. If you're at a school without either of those, then you're probably not our target market.
 
