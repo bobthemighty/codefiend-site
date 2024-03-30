@@ -34,6 +34,14 @@ I often think in terms of risk. If I get this wrong, how would that make the sys
 
 I'm going to define these here, because people often ask me if it's written down anywhere, and I'll do a follow up post where we can do an architecture kata to see how they work in practice.
 
+<div class="notepaper">
+<div class="content">
+
+I actually followed up on this, and the [architecture kata](@/architecture-kata-tales-of-the-fourth-grade/index.md) is live.
+
+</div>
+</div>
+
 ## Modifiability
 
 A system is modifiable if you can change its behaviour. 

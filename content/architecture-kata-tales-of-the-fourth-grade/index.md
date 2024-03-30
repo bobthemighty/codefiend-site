@@ -72,10 +72,16 @@ There are no constraints given in the document, so I'm going to make them up.
 
 I tend to think about the following:
 
-* People: Who is building and maintaining this software? How many of them are there, and what skills do they have?
-* Money: What's the budget for this? How much can we spend on hosting and buying fancy software? If this is a consulting gig, we need to turn a profit at the end.
-* Time: What's the deadline? What happens if we miss that deadline?
-* Knowledge: What are the unknowns? Is there complex domain knowledge that we need to understand? Do we need specific, deep technical skills, like ML or systems engineering?
+<dl>
+<dt>People</dt>
+<dd>Who is building and maintaining this software? How many of them are there, and what skills do they have?</dd>
+<dt>Money</dt>
+<dd>What's the budget for this? How much can we spend on hosting and buying fancy software? If this is a consulting gig, we need to turn a profit at the end.</dd>
+<dt>Time</dt>
+<dd>What's the deadline? What happens if we miss that deadline?</dd>
+<dt>Knowledge</dt>
+<dd>What are the unknowns? Is there complex domain knowledge that we need to understand? Do we need specific, deep technical skills, like ML or systems engineering?</dd>
+</dl>
 
 ### Our constraints
 
@@ -84,13 +90,15 @@ I'm going to assume that:
 * The developers are a product company, and this is their primary product. This isn't a consultancy job, we're in this for the long term.
 * Since we're starting from scratch, this is a start up. We can choose our technologies fairly freely, so long as we don't choose anything dumb and hard to hire. It's not like we're extending an existing COBOL system.
 * That means we'll have a single _small_ team of motivated people.
-* In a startup, time is literally money. You burn through cash until you
+* There's no specific deadline, but in a startup, time is literally money. You burn through cash until you
     * get some more funding 
     * start to turn a profit
     * go bankrupt
 * There's nothing particularly complex or technically intricate that we need to know. This is a standard CRUD-ish web app.
 
 # -Ilities
+
+We talked about [Architectural Qualities](@/mustapo.md) in a previous post. Here's how they break down for this kata.
 
 ## Modifiability
 
