@@ -76,6 +76,11 @@ Okay, so once you know how you pay people (we pay average market rate, but we're
 
 And so those are a good starting point for pay bands. In practice, the exact numbers will depend on the stack you're using, your geographical location, and a host of other factors. It's worth engaging a recruitment consultancy to do this for you. Tell them what skills you're hiring for, and they will go and do the market research and tell you how much it will cost. Don't do what I just did and pull it out of thin air.
 
+### Word from Steve
+
+> I have totally given up on getting industry benchmarking salary data because it’s the average of different data sources. See [The Pragmatic Engineer](https://blog.pragmaticengineer.com/software-engineering-salaries-in-the-netherlands-and-europe/) for an explanation.
+> As soon as you start hiring you’re participating in the market and you’ll work out the bands from candidate expectations pretty quickly anyway.
+
 Every engineer should know which band they're in, and whereabouts they fall. They should also know at least the lower-bound of the band above, so that they know what's waiting for them in the future. You might want to publish the whole pay structure, but be mindful that other parts of the organisation might pay significantly less, and it's not necessarily helpful.
 
 ## A growth framework
@@ -184,7 +189,9 @@ We want to hand out 40 w-bucks of pay rise, but we only have 20, so we simply ha
 
 So in our worked example, Amara got a huge uplift, while Celeste got a modest bump. Our two overpaid employees got nothing. In practice, you might need to _fudge_ a little to avoid people running away, but in theory what we've done is use the available funds to *close the biggest gaps*.
 
-As you iterate this process, people's actual salary will converge toward their *fair compensation*.
+> To work around the cliff-edge effect here, you might want to phase this in over time. For example, if your company has had a policy of flat 5% rises for a few cycles, try using the disparity data to modify the existing policy rather than replacing it. You might want to set a policy for the first couple of rounds that nobody gets a greater than 10% increase, and nobody gets zero.
+
+Regardless, as you iterate this process, people's actual salary will converge toward their *fair compensation*.
 
 As a nice side-effect, it's now easy to explain to any given engineer why they did, or did not, get a pay rise:
 
