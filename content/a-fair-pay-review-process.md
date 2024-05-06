@@ -68,13 +68,13 @@ It doesn't matter what your strategy _is_, so long as you choose one, and you ap
 
 Okay, so once you know how you pay people (we pay average market rate, but we're super cool, and fighting to save the world), you can draw up a set of of _pay bands_. These should be relatively wide, so that there is room for people to get increases, but shouldn't overlap. For example, in London right now, you can probably find yourself
 
-* A graduate engineer for £35,000-£45,000
-* A junior engineer for £50,000-£60,000
-* A mid-level engineer for £65,000-£75,000
-* A senior engineer for £80,000-£90,000
-* A principal engineer for £95,000-£110,000
+* A graduate engineer for £35,000-£40,000
+* A junior engineer for £45,000-£60,000
+* A mid-level engineer for £60,000-£75,000
+* A senior engineer for £75,000-£90,000
+* A principal engineer for £90,000-£110,000
 
-And so those are a good starting point for pay bands. In practice, the exact numbers will depend on the stack you're using, your geographical location, and a host of other factors. It's worth engaging a recruitment consultancy to do this for you. Tell them what skills you're hiring for, and they will go and do the market research and tell you how much it will cost.
+And so those are a good starting point for pay bands. In practice, the exact numbers will depend on the stack you're using, your geographical location, and a host of other factors. It's worth engaging a recruitment consultancy to do this for you. Tell them what skills you're hiring for, and they will go and do the market research and tell you how much it will cost. Don't do what I just did and pull it out of thin air.
 
 Every engineer should know which band they're in, and whereabouts they fall. They should also know at least the lower-bound of the band above, so that they know what's waiting for them in the future. You might want to publish the whole pay structure, but be mindful that other parts of the organisation might pay significantly less, and it's not necessarily helpful.
 
