@@ -98,7 +98,7 @@ Meet our sample team. Our sample team are widget chuckers, and they are paid in 
 
 * Amara - Junior widget chucker. First hire in the org, capable, and learning fast.
 * Björn - Senior widget chucker. Recent hire, negotiated hard in interview.
-* Celeste - Mid-level widget chucker, quiet but chucks lots of widgets.
+* Celeste - Junio-level widget chucker, quiet but chucks lots of widgets.
 * Diego - Junior widget chucker, struggling to settle into the company.
 * Ezgi - Senior widget chucker, performing well.
 
@@ -134,7 +134,7 @@ And then we assess each employee against the careers framework. We decide the fo
 
 * Amara - Should be promoted to mid-level.
 * Björn - Lower end of senior.
-* Celeste - Solid mid-level.
+* Celeste - Solid junior.
 * Diego - Lower-end of junior.
 * Ezgi - Upper end of senior.
 
