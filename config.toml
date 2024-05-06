@@ -23,6 +23,7 @@ taxonomies = [
 highlight_code = true
 highlight_theme = "kronuz"
 extra_syntaxes_and_themes = ["syntaxes", "syntaxes/sublime-terraform", "syntaxes/sublime-console"]
+bottom_footnotes = true
 
 [extra]
 # Put all your custom variables here

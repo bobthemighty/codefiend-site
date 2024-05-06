@@ -112,11 +112,16 @@ If your engineers want to make technical improvements, insist that they take the
 
 I use a really simple priority list, and I talk about it at every single planning meeting so that all the stakeholders know the score.
 
-1. Top priority is production incidents. If the system is broken, then we interrupt whatever else is going on to get it fixed.
-2. Hard customer commitments. If we have a contract with a customer to deliver X product by Y date, then we get that done, even if that means skimping on technical improvements.
-3. Incident actions. When something goes wrong in production, we take steps to make sure that doesn't happen again. We identify these in a post-mortem meeting, and they take priority over everything except customer commitments and live incidents.
-4. Work in flight. If you've got 3 projects in progress, do not start another one until all the work in flight is completed. Teams are happier and more productive when they get to finish stuff. Half-finished work does not deliver value.
-5. New work. This is a combination of technical work that needs to be done to improve the health of the system, and new projects to satisfy the product team.
+1. Production incidents. 
+   If the system is broken, then we interrupt whatever else is going on to get it fixed.
+2. Hard customer commitments. 
+   If we have a contract with a customer to deliver X product by Y date, then we get that done, even if that means skimping on technical improvements.
+3. Incident actions. 
+When something goes wrong in production, we take steps to make sure that doesn't happen again. We identify these in a post-mortem meeting, and they take priority over everything except customer commitments and live incidents.
+4. Work in flight. 
+If you've got 3 projects in progress, do not start another one until all the work in flight is completed. Teams are happier and more productive when they get to finish stuff. Half-finished work does not deliver value.
+5. New work. 
+This is a combination of technical work that needs to be done to improve the health of the system, and new projects to satisfy the product team.
 
 With that mental list, it's easy to look at the stuff in the backlog and understand what needs to be done: fix prod, deliver on time, stop prod breaking again, finish the incompleted tasks, then pick up new work.
 
