@@ -62,7 +62,7 @@ None of these are wrong. I work for an early-stage startup, and our pay scales a
 
 I know people who work in finance, and earn double what I do, but they're shuffling around money on behalf of hedge funds.
 
-It doesn't matter what your strategy _is_, so long as you choose one, and you apply it consistently, and you are honest with your employees about the trade-offs you're making.
+It doesn't matter what your strategy _is_, so long as you choose one, and you apply it consistently, and you are honest with your employees about the trade-offs you're making. This is unlikely to be a decision that an engineering manager has authority to take. You'll need to pester your boss and your boss's boss to get a simple message in writing.
 
 ## A Set of Pay Bands
 
