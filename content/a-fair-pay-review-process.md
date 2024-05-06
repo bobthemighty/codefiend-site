@@ -58,7 +58,7 @@ Your compensation strategy is the decisions you make with respect to equity and 
 * We pay below market rate. We make up for it with a sense of mission, and a fantastic learning culture.
 * We pay over market rate, because the work here is boring.
 
-None of these are wrong. I work for an early-stage startup, and our pay scales are in the middle of market rate, but we're working on fixing climate change, and everybody is really friendly. Also, we have stock options, and a very well provisioned fridge. Those factors are enough to keep people happy, for the most part.
+None of these are wrong. I work for an early-stage startup, and our pay scales are market rate, but we're working on fixing climate change, and everybody is really friendly. Also, we have stock options, and a very well provisioned fridge. Those factors are enough to keep people happy, for the most part.
 
 I know people who work in finance, and earn double what I do, but they're shuffling around money on behalf of hedge funds.
 
