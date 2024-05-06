@@ -66,7 +66,7 @@ It doesn't matter what your strategy _is_, so long as you choose one, and you ap
 
 ## A Set of Pay Bands
 
-Okay, so once you know how you pay people (we pay lower-end of market rate, but we're super cool, and fighting to save the world), you can draw up a set of of _pay bands_. These should be relatively wide, so that there is room for people to get increases, but shouldn't overlap. For example, in London right now, you can probably find yourself
+Okay, so once you know how you pay people (we pay average market rate, but we're super cool, and fighting to save the world), you can draw up a set of of _pay bands_. These should be relatively wide, so that there is room for people to get increases, but shouldn't overlap. For example, in London right now, you can probably find yourself
 
 * A graduate engineer for £35,000-£45,000
 * A junior engineer for £50,000-£60,000
