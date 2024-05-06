@@ -156,9 +156,9 @@ We use that to derive the _target salary_ for each employee. In other words, if 
 
 </div>
 
-It turns out, to everybody's shock and horror, that we systematically underpay our female employees, and our earliest employees, while tending to overpay our male employees. Everybody is very embarassed.
+It turns out, to everybody's shock and horror, that we systematically underpay our female employees, and our earliest employees. Everybody is very embarassed.
 
-If we want to correct all the imbalances, it will cost us an extra 40 w-bucks. So you take that number, and you go talk to the CEO and say "please can I have 40 w-bucks extra budget to correct historical imbalances in our pay?" and he laughs at you.
+Realistically, we're not going to cut Bjorn's pay, so we'll just have to live with him being overpaid and chalk it up to experience. If we want to correct all the other imbalances, it will cost us an extra 40 w-bucks. So you take that number, and you go talk to the CEO and say "please can I have 40 w-bucks extra budget to correct historical imbalances in our pay?" and he laughs at you.
 
 "No," he says, "you can have 20 w-bucks extra for next year".
 
