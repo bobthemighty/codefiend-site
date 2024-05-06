@@ -17,7 +17,7 @@ td { text-align: center }
 
 # How to run a fair pay review process
 
-So you're an EM for the first time, and you've got to figure out how to run a pay review process. This is easy to screw up and, if you do, you will make lots of people unhappy. I want to show you the simplest, most defensible, way to allocate pay rises to staff. I need a cool name, so I'm going to call it The STEVE Protocol.
+So you're an engineering manager for the first time, and you've got to figure out how to run a pay review process. This is easy to screw up and, if you do, you will make lots of people unhappy. I want to show you the simplest, most defensible, way to allocate pay rises to staff. I need a cool name, so I'm going to call it The STEVE Protocol.
 
 <!-- more -->
 
