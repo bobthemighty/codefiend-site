@@ -21,7 +21,7 @@ So you're an EM for the first time, and you've got to figure out how to run a pa
 
 <!-- more -->
 
-I'd like to claim there's some very clever backronym here, but actually it was introduced to me by a guy named Steve. It's almost certainly not original, bceause it's actually common sense.
+I'd like to claim there's some very clever backronym here, but actually it was introduced to me by a guy named Steve. It's almost certainly not original, because it's actually common sense.
 
 # TL;DR
 
