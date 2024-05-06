@@ -148,7 +148,7 @@ We use that to derive the _target salary_ for each employee. In other words, if 
 | Employee | Current Salary | Target Salary | Suggested increase |
 |----------|----------------|---------------|--------------------|
 | Amara    |             70 |            95 |                 25 |
-| Bjorn    |            140 |           120 |                  0 |
+| Björn    |            140 |           120 |                  0 |
 | Celeste  |             80 |            85 |                  5 |
 | Diego    |             80 |            80 |                  0 |
 | Ezgi     |            130 |           140 |                 10 |
@@ -158,7 +158,7 @@ We use that to derive the _target salary_ for each employee. In other words, if 
 
 It turns out, to everybody's shock and horror, that we systematically underpay our female employees, and our earliest employees. Everybody is very embarassed.
 
-Realistically, we're not going to cut Bjorn's pay, so we'll just have to live with him being overpaid and chalk it up to experience. If we want to correct all the other imbalances, it will cost us an extra 40 w-bucks. So you take that number, and you go talk to the CEO and say "please can I have 40 w-bucks extra budget to correct historical imbalances in our pay?" and he laughs at you.
+Realistically, we're not going to cut Björn's pay, so we'll just have to live with him being overpaid and chalk it up to experience. If we want to correct all the other imbalances, it will cost us an extra 40 w-bucks. So you take that number, and you go talk to the CEO and say "please can I have 40 w-bucks extra budget to correct historical imbalances in our pay?" and he laughs at you.
 
 "No," he says, "you can have 20 w-bucks extra for next year".
 
@@ -172,7 +172,7 @@ We want to hand out 40 w-bucks of pay rise, but we only have 20, so we simply ha
 | Employee | Current Salary | New Salary | Increase |
 |----------|----------------|------------|----------|
 | Amara    | 70             | 83         | 13       |
-| Bjorn    | 140            | 140        | 0        |
+| Björn    | 140            | 140        | 0        |
 | Celeste  | 80             | 82         | 2        |
 | Diego    | 80             | 80         | 0        |
 | Ezgi     | 130            | 135        | 5        |
