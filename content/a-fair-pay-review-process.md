@@ -98,7 +98,7 @@ Every engineer should know which band they're in, and whereabouts they fall. The
 
 The last pre-requisite is a growth framework that helps you correctly level your engineers. There are a whole bunch of these available to crib from at [levels.fyi](https://levels.fyi). At [CarbonRe](https://carbonre.com), we stole a bunch of material from [Rent The Runway](https://dresscode.renttherunway.com/blog/ladder) because we liked the playful, D&D character sheet approach. 
 
-Depending on the size of your organisation, your framework will be larger or smaller, don't fret. Right now, at CRe, we have four defined levels: junior engineer, engineer, senior engineer, and lead. That's more than enough. At [the bad place](www.cazoo.co.uk) it took us far too long to build a framework. Just pick something off the shelf and adjust as you go.
+Depending on the size of your organisation, your framework will be larger or smaller, don't fret. Right now, at CRe, we have four defined levels: junior engineer, engineer, senior engineer, and lead. That's more than enough. At [the bad place](https://www.cazoo.co.uk) it took us far too long to build a framework. Just pick something off the shelf and adjust as you go.
 
 Once you've written something up, you'll need to spend time with each engineer to work out where _they_ think they are on that ladder, and where _you_ think they are so that you can get buy-in.
 
