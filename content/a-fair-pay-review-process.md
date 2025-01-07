@@ -37,11 +37,19 @@ Simples.
 
 # The philosophy
 
-To apply this approach, you need a few things in place. The first thing you need is a philosophy of compensation. Here it is: *Your salary is compensation for your time.* Your employer pays you to do work for them instead of growing mung beans, or playing Pokemon Go, or reading Baudelaire, or whatever else you kids get up to. That's why you get paid every month, it's a transaction where the employer _buys_ your time and attention.
+To apply this approach, you need a few things in place. The first thing you need is a philosophy of compensation. Here it is: 
 
-*Your salary should be dictated by the market rate for your time*. In a perfect world, your employer shouldn't pay you more than your time is worth, and you shouldn't accept _less_ than your time is worth. Now this is up for some debate, because you might choose to work for less than market rate at a start up, or a registered charity or what have you.
+### Your salary is compensation for your time.
 
-*Pay rises are to correct disparities between market rate and current compensation.* Over time, you hire people, you promote people, and so disparities will inevitably creep in. Some people will be over paid, others will be underpaid. The purpose of pay rises is to _correct_ these imbalances as best you can. Pay rises are *not* a reward, because your salary is not a reward: it is your fair price for your time.
+Your employer pays you to do work for them instead of growing mung beans, or playing Pokemon Go, or reading Baudelaire, or whatever else you kids get up to. That's why you get paid every month, it's a transaction where the employer _buys_ your time and attention.
+
+### Your salary should be dictated by the market rate for your time.
+
+In a perfect world, your employer shouldn't pay you more than your time is worth, and you shouldn't accept _less_ than your time is worth. Now this is up for some debate, because you might choose to work for less than market rate at a start up, or a registered charity or what have you.
+
+### Pay rises are to correct disparities between market rate and current compensation.
+
+Over time, you hire people, you promote people, and so disparities will inevitably creep in. Some people will be over paid, others will be underpaid. The purpose of pay rises is to _correct_ these imbalances as best you can. Pay rises are *not* a reward, because your salary is not a reward: it is your fair price for your time.
 
 With all of that said, let's talk about the pre-requisites, and set up a scenario.
 
