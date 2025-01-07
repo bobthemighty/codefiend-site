@@ -23,9 +23,9 @@ So you're an engineering manager for the first time, and you've got to figure ou
 
 I'd like to claim there's some very clever backronym here, but actually it was introduced to me by a guy named Steve. It's almost certainly not original, because it's actually common sense.
 
-# TL;DR
 
 {% paper(type="note") %}
+# TL;DR
 
 1. Figure out the disparity between the target salaries and current salaries of your staff.
 2. Get a budget for pay rises.
