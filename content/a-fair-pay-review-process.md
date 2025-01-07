@@ -57,7 +57,7 @@ With all of that said, let's talk about the pre-requisites, and set up a scenari
 
 There are two-and-a-half other things you need to have understood before you get started.
 
-## A Compensation Strategy
+### A Compensation Strategy
 
 Your compensation strategy is the decisions you make with respect to equity and market rate. Here are some viable options:
 
@@ -72,7 +72,7 @@ I know people who work in finance, and earn double what I do, but they're shuffl
 
 It doesn't matter what your strategy _is_, so long as you choose one, and you apply it consistently, and you are honest with your employees about the trade-offs you're making. This is unlikely to be a decision that an engineering manager has authority to take. You'll need to pester your boss and your boss's boss to get a simple message in writing.
 
-## A Set of Pay Bands
+### A Set of Pay Bands
 
 Okay, so once you know how you pay people (we pay average market rate, but we're super cool, and fighting to save the world), you can draw up a set of of _pay bands_. These should be relatively wide, so that there is room for people to get increases, but shouldn't overlap. For example, in London right now, you can probably find yourself
 
@@ -84,14 +84,17 @@ Okay, so once you know how you pay people (we pay average market rate, but we're
 
 And so those are a good starting point for pay bands. In practice, the exact numbers will depend on the stack you're using, your geographical location, and a host of other factors. It's worth engaging a recruitment consultancy to do this for you. Tell them what skills you're hiring for, and they will go and do the market research and tell you how much it will cost. Don't do what I just did and pull it out of thin air.
 
-### Word from Steve
+{% paper(type="note")%}
+#### Word from Steve
 
 > I have totally given up on getting industry benchmarking salary data because it’s the average of different data sources. See [The Pragmatic Engineer](https://blog.pragmaticengineer.com/software-engineering-salaries-in-the-netherlands-and-europe/) for an explanation.
 > As soon as you start hiring you’re participating in the market and you’ll work out the bands from candidate expectations pretty quickly anyway.
 
+{% end %}
+
 Every engineer should know which band they're in, and whereabouts they fall. They should also know at least the lower-bound of the band above, so that they know what's waiting for them in the future. You might want to publish the whole pay structure, but be mindful that other parts of the organisation might pay significantly less, and it's not necessarily helpful.
 
-## A growth framework
+### A growth framework
 
 The last pre-requisite is a growth framework that helps you correctly level your engineers. There are a whole bunch of these available to crib from at [levels.fyi](https://levels.fyi). At [CarbonRe](https://carbonre.com), we stole a bunch of material from [Rent The Runway](https://dresscode.renttherunway.com/blog/ladder) because we liked the playful, D&D character sheet approach. 
 
