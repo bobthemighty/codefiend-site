@@ -55,3 +55,17 @@
 .notepaper .todo li {
     list-style-type: none;
 }
+
+.notepaper .gotcha h2:before {
+    content: '';
+    display: inline-block;
+    background-image: url(/img/warning-triangular-sketched-sign_59566.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 1em;
+    height: 1em;
+    vertical-align: top;
+    margin-right: 0.3em;
+    margin-top: 0.1em;
+}
