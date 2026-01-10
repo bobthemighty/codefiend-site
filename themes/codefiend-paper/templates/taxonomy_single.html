@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+  <header class="page-header">
+    <h1 class="h1">{{ taxonomy.name | title }}: {{ term.name }}</h1>
+  </header>
+
+  <ol class="post-list">
+    {% for p in term.pages %}
+      <li class="post-item">
+        <article class="post-teaser">
+          <h2 class="h2"><a href="{{ p.permalink }}">{{ p.title }}</a></h2>
+          <p class="meta"><time datetime="{{ p.date }}">{{ p.date | date(format="%Y-%m-%d") }}</time></p>
+        </article>
+      </li>
+    {% endfor %}
+  </ol>
+{% endblock content %}

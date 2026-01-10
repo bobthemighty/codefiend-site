@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <header class="page-header">
+    <h1 class="h1">{{ config.title }}</h1>
+    {% if config.description %}
+      <p class="lede">{{ config.description }}</p>
+    {% endif %}
+  </header>
+
+  {% set section = get_section(path="_index.md") %}
+  {% include "partials/post_list.html" %}
+{% endblock content %}

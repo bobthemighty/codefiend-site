@@ -19,9 +19,9 @@ Your Architectural Kata is...
 
 # Tales Of A Fourth Grade
 
-<div class="notepaper">
-<div class="content">
 
+
+{% paper(type="note") %}
 An elementary school system comprehensive student management system
 
 ### Requirements
@@ -37,8 +37,8 @@ An elementary school system comprehensive student management system
 
 faculty, staff and student parents
 
-</div>
-</div>
+{% end %}
+
 
 [Original kata here](http://www.architecturalkatas.com/kata.html?kata=TalesOfAFourthGrade.json)
 

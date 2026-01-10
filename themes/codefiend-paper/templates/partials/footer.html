@@ -1,0 +1,9 @@
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <span>© {{ now() | date(format="%Y") }} {{ config.title }}</span>
+      <span class="sep">·</span>
+      <a href="{{ get_url(path="atom.xml") }}">Atom</a>
+    </p>
+  </div>
+</footer>
