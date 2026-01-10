@@ -1,24 +1,18 @@
-<html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>gg</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-        <!-- Place favicon.ico in the root directory -->
+<title>
+  {% if page and page.title %}{{ page.title }} · {{ config.title }}
+  {% elif section and section.title %}{{ section.title }} · {{ config.title }}
+  {% else %}{{ config.title }}{% endif %}
+</title>
 
-    </head>
-    <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">
-            You are using an <strong>outdated</strong> browser. Please
-            <a href="http://browsehappy.com/">upgrade your browser</a> to improve
-            your experience.
-            </p>
-        <![endif]-->
+{% if page and page.description %}
+  <meta name="description" content="{{ page.description }}">
+{% elif section and section.description %}
+  <meta name="description" content="{{ section.description }}">
+{% elif config.description %}
+  <meta name="description" content="{{ config.description }}">
+{% endif %}
 
-
-    </body>
-</html>
+<link rel="alternate" type="application/atom+xml" title="Atom" href="{{ get_url(path="atom.xml") }}">

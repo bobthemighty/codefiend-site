@@ -83,6 +83,23 @@ a:hover { text-decoration-thickness: 2px; }
 
   letter-spacing: -0.01em;
 }
+
+.h1 a,
+.h2 a,
+.prose h2 a,
+.prose h3 a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3rem;
+}
+
+.h1 a:hover,
+.h2 a:hover,
+.prose h2 a:hover,
+.prose h3 a:hover {
+  text-decoration-thickness: 2px;
+}
+
+
 .prose p + p {
   text-indent: 0;
   margin-top: 1.1rem;
@@ -141,7 +158,7 @@ a:hover { text-decoration-thickness: 2px; }
 }
 
 /* Keep typography calm */
-.post-teaser .h2 { margin: 0 0 0.25rem 0; }
+.post-teaser .h2 { margin: 0 0 0.5rem 0; }
 .post-teaser .meta { margin: 0; font-size: 0.9rem; }
 .post-teaser .summary { margin: 0.8rem 0 0; }
 
