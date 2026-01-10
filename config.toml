@@ -13,12 +13,12 @@ compile_sass = true
 build_search_index = false
 
 generate_feed = true
-feed_filename = "rss.xml"
+feed_filename = "atom.xml"
 
 title = "Diary of a Code Fiend"
 
 taxonomies = [
-    {name = "tags", rss = true, paginate_by = 5},
+    {name = "tags", feed = true, paginate_by = 5},
 ]
 
 [markdown]
