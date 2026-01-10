@@ -1,0 +1,29 @@
+{% if section.pages | length > 0 %}
+  <ol class="post-list">
+    {% for p in section.pages %}
+      <li class="post-item">
+        <article class="post-teaser">
+          <h2 class="h2">
+            <a href="{{ p.permalink }}">{{ p.title }}</a>
+          </h2>
+          <p class="meta">
+            <time datetime="{{ p.date }}">{{ p.date | date(format="%Y-%m-%d") }}</time>
+            {% if p.taxonomies and p.taxonomies.tags %}
+              <span class="sep">·</span>
+              <span class="tags">
+                {% for t in p.taxonomies.tags %}
+                  <a href="{{ get_taxonomy_url(kind="tags", name=t) }}">#{{ t }}</a>{% if not loop.last %} {% endif %}
+                {% endfor %}
+              </span>
+            {% endif %}
+          </p>
+          {% if p.summary %}
+            <p class="summary">{{ p.summary | safe }}</p>
+          {% endif %}
+        </article>
+      </li>
+    {% endfor %}
+  </ol>
+{% else %}
+  <p>No posts yet.</p>
+{% endif %}

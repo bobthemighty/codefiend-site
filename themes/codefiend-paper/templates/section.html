@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <header class="page-header">
+    <h1 class="h1">{{ section.title }}</h1>
+    {% if section.description %}
+      <p class="lede">{{ section.description }}</p>
+    {% endif %}
+  </header>
+
+  {% include "partials/post_list.html" %}
+{% endblock content %}

@@ -1,0 +1,18 @@
+<header class="site-header">
+  <div class="wrap">
+    <p class="site-title">
+      <a href="{{ config.base_url }}">{{ config.title }}</a>
+    </p>
+
+    <nav class="site-nav" aria-label="Primary">
+      <a href="{{ get_url(path="/") }}">Home</a>
+      <a href="{{ get_url(path="/tags") }}">Tags</a>
+      {% if config.extra and config.extra.nav %}
+        {# Optional: config.extra.nav = [{name="About", url="/about/"}] #}
+        {% for item in config.extra.nav %}
+          <a href="{{ get_url(path=item.url) }}">{{ item.name }}</a>
+        {% endfor %}
+      {% endif %}
+    </nav>
+  </div>
+</header>

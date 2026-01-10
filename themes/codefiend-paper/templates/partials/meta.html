@@ -1,0 +1,18 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>
+  {% if page and page.title %}{{ page.title }} · {{ config.title }}
+  {% elif section and section.title %}{{ section.title }} · {{ config.title }}
+  {% else %}{{ config.title }}{% endif %}
+</title>
+
+{% if page and page.description %}
+  <meta name="description" content="{{ page.description }}">
+{% elif section and section.description %}
+  <meta name="description" content="{{ section.description }}">
+{% elif config.description %}
+  <meta name="description" content="{{ config.description }}">
+{% endif %}
+
+<link rel="alternate" type="application/atom+xml" title="Atom" href="{{ get_url(path="atom.xml") }}">

@@ -1,0 +1,9 @@
+{% set title = title | default(value="Note") %}
+{% set kind = kind | default(value="note") %}
+
+<aside class="callout callout-{{ kind }}">
+  <p class="callout-title">{{ title }}</p>
+  <div class="callout-body">
+    {{ body | markdown | safe }}
+  </div>
+</aside>

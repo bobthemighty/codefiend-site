@@ -20,4 +20,4 @@ Honestly, the monorepo series is kind of intimidating, because there's so much c
 So thanks, Michel, and thanks to everyone who has emailed me over the years to say "I learned a  thing from you", or to ask a question. It genuinely makes me smile every time.
 
 If there's something you're curious about, that I could write about, I'm always happy to get blog ideas. Just fire me an email to bob at codefiend.co.uk.
-
+<!-- more -->

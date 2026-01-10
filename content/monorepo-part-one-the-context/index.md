@@ -12,9 +12,6 @@ tags = ["monorepo", "ci-cd"]
 +++
 
 
-# MonoRepo Experience Report: Part 1
-
-
 The first thing that made me nervous when I joined Carbon Re was The MonoRepo. I'd heard of monorepos, of course, but I'd never implemented them in practice. For clarity, by "monorepo" I mean "a single git repository containing all the code for an organisation". 
 
 <!-- more -->

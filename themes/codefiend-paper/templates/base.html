@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="{{ config.default_language | default(value="en") }}">
+  <head>
+    {% include "partials/meta.html" %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,500&family=DM+Sans:wght@400;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ get_url(path="main.css", trailing_slash=false) }}">
+    {% block extra_head %}{% endblock extra_head %}
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+
+    {% include "partials/header.html" %}
+
+    <main id="content" class="content" role="main">
+      {% block content %}{% endblock content %}
+    </main>
+
+    {% include "partials/footer.html" %}
+  </body>
+  <script type="text/javascript">
+         // This is my home-brew, privacy-friendly, cookie-free stats script.
+         // I just want to get some anonymous info about my readers,
+         // the devices they use to read my blog, and what pages are
+         // linking to me.
+
+         // The code for the setup is at https://github.com/bobthemighty/codefiend-stats
+
+
+         // What time was it when you loaded this page?
+         let timestamp = Date.now();
+
+         // I'd like to know what page you're looking at
+         // so I know what's popular...
+         let uri = window.location.href;
+
+         // ... and how you found me!
+         let referrer = document.referrer;
+
+         // Get the width rounded down to 50px
+         // this tells me how big my readers' screens are
+         // but is too inaccurate to identify you.
+         let width = window.innerHeight;
+         width -= width % 50;
+
+         let hit = {
+             u: uri,
+             r: referrer,
+             t: timestamp,
+             v: width
+         }
+
+         const endpoint = 'https://stats.codefiend.co.uk/'
+         let headers = {
+             "Content-Type": "application/json",
+             "X-Api-Key": "gVAPFwd5xc90YQov7pwjl1zhGhHB1Ozw3yBSZmkW"
+         };
+
+         fetch(endpoint,{
+             method: 'POST',
+             body: JSON.stringify(hit),
+             headers
+         });
+      </script>
+</html>
