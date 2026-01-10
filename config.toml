@@ -13,7 +13,7 @@ compile_sass = true
 build_search_index = false
 
 generate_feed = true
-feed_filename = "atom.xml"
+feed_filename = "rss.xml"
 
 title = "Diary of a Code Fiend"
 
